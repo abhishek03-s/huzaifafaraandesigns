@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // ✅ AOS
+  // ✅ AOS Animations
   if (typeof AOS !== "undefined") {
     AOS.init({ duration: 1000, once: true });
   }
 
-  // ✅ Theme Toggle
+  // ✅ Light/Dark Mode
   const themeToggle = document.getElementById("theme-toggle");
   const body = document.body;
   const savedTheme = localStorage.getItem("theme");
@@ -15,13 +15,13 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("theme", body.classList.contains("dark") ? "dark" : "light");
   });
 
-  // ✅ Hamburger
+  // ✅ Hamburger Menu
   const hamburger = document.querySelector(".hamburger");
   const navLinks = document.getElementById("navLinks");
-  hamburger?.addEventListener("click", () => {
-    navLinks?.classList.toggle("show");
-  });
-  document.querySelectorAll("#navLinks a").forEach((link) => {
+
+  hamburger?.addEventListener("click", () => navLinks?.classList.toggle("show"));
+
+  document.querySelectorAll("#navLinks a").forEach(link => {
     link.addEventListener("click", () => {
       if (window.innerWidth <= 768 && navLinks.classList.contains("show")) {
         navLinks.classList.remove("show");
@@ -29,34 +29,37 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // ✅ Hero Slider
+  // ✅ Hero Slider (index.html only)
   const heroSlides = document.querySelectorAll(".hero-slide");
   if (heroSlides.length > 0) {
-    let current = 0;
-    const showSlide = (i) => {
-      heroSlides.forEach((s, idx) => s.classList.toggle("active", idx === i));
+    let currentSlide = 0;
+    const showHeroSlide = (index) => {
+      heroSlides.forEach((slide, i) =>
+        slide.classList.toggle("active", i === index)
+      );
     };
-    showSlide(current);
+    showHeroSlide(currentSlide);
     setInterval(() => {
-      current = (current + 1) % heroSlides.length;
-      showSlide(current);
+      currentSlide = (currentSlide + 1) % heroSlides.length;
+      showHeroSlide(currentSlide);
     }, 5000);
   }
 
-  // ✅ Tabs (Projects)
-  const tabs = document.querySelectorAll(".tab-btn");
-  const photos = document.getElementById("photos-section");
-  const videos = document.getElementById("videos-section");
-  tabs.forEach((btn) => {
+  // ✅ Project Tabs
+  const tabButtons = document.querySelectorAll(".tab-btn");
+  const photosSection = document.getElementById("photos-section");
+  const videosSection = document.getElementById("videos-section");
+
+  tabButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
-      tabs.forEach((b) => b.classList.remove("active"));
+      const target = btn.dataset.target;
+      tabButtons.forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
-      if (btn.dataset.target === "photos-section") {
-        photos.style.display = "block";
-        videos.style.display = "none";
-      } else {
-        videos.style.display = "block";
-        photos.style.display = "none";
+      if (photosSection && videosSection) {
+        photosSection.style.display = "none";
+        videosSection.style.display = "none";
+        if (target === "photos-section") photosSection.style.display = "block";
+        if (target === "videos-section") videosSection.style.display = "block";
       }
     });
   });
@@ -67,50 +70,54 @@ document.addEventListener("DOMContentLoaded", () => {
   if (contactForm) {
     contactForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      const name = contactForm.name.value.trim();
-      const phone = contactForm.phone.value.trim();
-      const email = contactForm.email.value.trim();
-      const message = contactForm.message.value.trim();
+      const name = contactForm.querySelector("[name='name']").value.trim();
+      const phone = contactForm.querySelector("[name='phone']").value.trim();
+      const email = contactForm.querySelector("[name='email']").value.trim();
+      const message = contactForm.querySelector("[name='message']").value.trim();
       if (!name || !phone || !email || !message) {
         formStatus.textContent = "❗ Please fill in all fields.";
         return;
       }
-      const msg = `*New Project Inquiry*\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nMessage: ${message}`;
-      const url = `https://wa.me/917447857802?text=${encodeURIComponent(msg)}`;
-      window.open(url, "_blank");
+      const fullMessage = encodeURIComponent(
+        `*New Project Inquiry*\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nMessage: ${message}`
+      );
+      const whatsappNumber = "917447857802";
+      const whatsappURL = `https://wa.me/${whatsappNumber}?text=${fullMessage}`;
+      window.open(whatsappURL, "_blank");
       formStatus.textContent = "✅ Opening WhatsApp...";
       contactForm.reset();
     });
   }
 
-  // ✅ Back to Top
-  const backToTop = document.createElement("button");
-  backToTop.id = "backToTop";
-  backToTop.title = "Back to top";
-  backToTop.textContent = "↑";
-  document.body.appendChild(backToTop);
+  // ✅ Back to Top Button
+  const backToTopBtn = document.createElement("button");
+  backToTopBtn.id = "backToTop";
+  backToTopBtn.title = "Back to top";
+  backToTopBtn.textContent = "↑";
+  document.body.appendChild(backToTopBtn);
+
   window.addEventListener("scroll", () => {
-    backToTop.style.display = window.scrollY > 300 ? "block" : "none";
+    backToTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
   });
-  backToTop.addEventListener("click", () => {
+
+  backToTopBtn.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
   // ✅ Lightbox
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.querySelector(".lightbox-img");
+  const lightboxClose = document.querySelector(".lightbox-close");
   const caption = document.querySelector(".lightbox-caption");
-  const closeBtn = document.querySelector(".lightbox-close");
   const nextBtn = document.querySelector(".lightbox-nav.next");
   const prevBtn = document.querySelector(".lightbox-nav.prev");
-  const fullscreenBtn = document.querySelector(".lightbox-fullscreen");
-
   const images = Array.from(document.querySelectorAll(".project-item img"));
+
   let currentIndex = 0;
 
   function openLightbox(index) {
     currentIndex = index;
-    const img = images[index];
+    const img = images[currentIndex];
     lightboxImg.src = img.src;
     lightboxImg.alt = img.alt;
     caption.textContent = img.alt || "";
@@ -122,58 +129,39 @@ document.addEventListener("DOMContentLoaded", () => {
     lightbox.classList.remove("show");
     document.body.style.overflow = "";
     lightboxImg.src = "";
-    caption.textContent = "";
+    lightboxImg.alt = "";
   }
 
-  function showNext() {
-    currentIndex = (currentIndex + 1) % images.length;
-    openLightbox(currentIndex);
-  }
-
-  function showPrev() {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    openLightbox(currentIndex);
-  }
-
-  images.forEach((img, i) => {
-    img.addEventListener("click", () => openLightbox(i));
+  images.forEach((img, index) => {
+    img.addEventListener("click", () => openLightbox(index));
   });
 
-  nextBtn?.addEventListener("click", showNext);
-  prevBtn?.addEventListener("click", showPrev);
-  closeBtn?.addEventListener("click", closeLightbox);
+  lightboxClose?.addEventListener("click", closeLightbox);
   lightbox?.addEventListener("click", (e) => {
     if (e.target === lightbox) closeLightbox();
   });
 
-  fullscreenBtn?.addEventListener("click", () => {
-    if (!document.fullscreenElement) {
-      lightbox.requestFullscreen().catch(() => {});
-    } else {
-      document.exitFullscreen();
-    }
-  });
+  // ✅ Only enable navigation on desktop
+  if (window.innerWidth > 768) {
+    nextBtn?.addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      openLightbox(currentIndex);
+    });
 
-  document.addEventListener("keydown", (e) => {
-    if (!lightbox.classList.contains("show")) return;
-    if (e.key === "Escape") closeLightbox();
-    if (e.key === "ArrowRight") showNext();
-    if (e.key === "ArrowLeft") showPrev();
-  });
+    prevBtn?.addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      openLightbox(currentIndex);
+    });
 
-  // ✅ Swipe Events for Lightbox
-  let touchStartX = 0;
-  let touchEndX = 0;
-  lightboxImg.addEventListener("touchstart", (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-  });
-  lightboxImg.addEventListener("touchend", (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
-  });
-
-  function handleSwipe() {
-    if (touchEndX < touchStartX - 50) showNext();
-    if (touchEndX > touchStartX + 50) showPrev();
+    document.addEventListener("keydown", (e) => {
+      if (!lightbox.classList.contains("show")) return;
+      if (e.key === "ArrowRight") nextBtn?.click();
+      if (e.key === "ArrowLeft") prevBtn?.click();
+      if (e.key === "Escape") closeLightbox();
+    });
+  } else {
+    // ❌ Hide navigation buttons on mobile
+    nextBtn?.style.setProperty("display", "none");
+    prevBtn?.style.setProperty("display", "none");
   }
 });
