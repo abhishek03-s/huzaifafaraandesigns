@@ -104,33 +104,37 @@ document.addEventListener("DOMContentLoaded", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
-  // ✅ Lightbox for Project Images
+  // ✅ Lightbox with scrollable wrapper
   const lightbox = document.getElementById("lightbox");
   const lightboxWrapper = document.querySelector(".lightbox-wrapper");
   const lightboxClose = document.querySelector(".lightbox-close");
-
+  const caption = document.querySelector(".lightbox-caption");
   const images = Array.from(document.querySelectorAll(".project-item img"));
 
-  images.forEach((img) => {
+  images.forEach((img, index) => {
     img.addEventListener("click", () => {
-      // Clear existing content
+      // Clear previous content
       lightboxWrapper.innerHTML = "";
 
-      // Create scrollable gallery
+      // Append all images into lightboxWrapper
       images.forEach((imgEl) => {
         const clone = imgEl.cloneNode(true);
         clone.classList.add("lightbox-img-item");
         lightboxWrapper.appendChild(clone);
       });
 
-      // Scroll to clicked image
-      const index = images.indexOf(img);
+      // Open lightbox and scroll to clicked image
       lightbox.classList.add("show");
       document.body.style.overflow = "hidden";
-      setTimeout(() => {
+      caption.textContent = img.alt || "";
+
+      // Scroll to correct image using requestAnimationFrame
+      requestAnimationFrame(() => {
         const targetImg = lightboxWrapper.children[index];
-        targetImg.scrollIntoView({ inline: "center", behavior: "instant", block: "nearest" });
-      }, 0);
+        if (targetImg) {
+          targetImg.scrollIntoView({ behavior: "instant", inline: "center" });
+        }
+      });
     });
   });
 
@@ -143,5 +147,6 @@ document.addEventListener("DOMContentLoaded", () => {
     lightbox.classList.remove("show");
     document.body.style.overflow = "";
     lightboxWrapper.innerHTML = "";
+    caption.textContent = "";
   }
 });
