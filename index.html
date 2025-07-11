@@ -2,19 +2,48 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>HUZAIFA FARAAN ARCHITECTURE + Ðesign</title>
-  <link rel="stylesheet" href="styles.css" />
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="HUZAIFA FARAAN Architecture + Design — Creating unique, stylish, and contemporary architectural and interior design projects." />
+  <meta name="keywords" content="Architecture, Interior Design, HUZAIFA FARAAN, Modern Homes, Luxury Design, Office Interiors" />
+  <meta name="author" content="HUZAIFA FARAAN" />
+  <meta property="og:title" content="HUZAIFA FARAAN ARCHITECTURE + Ðesign" />
+  <meta property="og:description" content="Creating unique, stylish, and contemporary architectural and interior design projects." />
+  <meta property="og:type" content="website" />
+  <!-- Add your site URL below -->
+  <meta property="og:url" content="https://yourwebsite.com" />
+  <!-- Optional og:image for social previews -->
+  <meta property="og:image" content="https://yourwebsite.com/images/og-image.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <!-- Apple touch icon -->
+  <link rel="apple-touch-icon" href="images/favicon-apple.png" />
+
+  <!-- Fonts and stylesheets -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+  
 </head>
+
 <body>
+  <!-- ✅ Back to Top Button -->
+  <button id="backToTop" title="Go to top">↑</button>
+
   <!-- Navbar -->
   <nav class="navbar">
     <div class="navbar-left">
       <img src="images/logo navbar.jpeg" alt="Logo" class="logo-img" />
-      <span class="logo-text">HUZAIFA FARAAN <br>ARCHITECTURE + <br>Ðesign</span>
+      <span class="logo-text">HUZAIFA FARAAN <br>ARCHITECTURE + Ðesign</span>
     </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
+      <span class="sun">☀️</span>
+      <span class="moon">🌙</span>
+    </button>
     <div class="hamburger">&#9776;</div>
     <div class="nav-links" id="navLinks">
       <a href="index.html">Home</a>
@@ -24,24 +53,25 @@
     </div>
   </nav>
 
- <!-- Hero Section -->
-<section class="hero">
-  <div class="hero-slider">
-    <div class="hero-slide active"><img src="images/bg7.jpg" alt="Slide 1" /></div>
-    <div class="hero-slide"><img src="images/bg5.jpg" alt="Slide 2" /></div>
-    <div class="hero-slide"><img src="images/bg4.jpg" alt="Slide 3" /></div>
-    <div class="hero-slide"><img src="images/bg6.jpg" alt="Slide 4" /></div>
-  </div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-slider">
+      <div class="hero-slide active"><img src="images/bg7.jpg" alt="Slide 1" loading="lazy" /></div>
+      <div class="hero-slide"><img src="images/bg5.jpg" alt="Slide 2" loading="lazy" /></div>
+      <div class="hero-slide"><img src="images/bg4.jpg" alt="Slide 3" loading="lazy" /></div>
+      <div class="hero-slide"><img src="images/bg6.jpg" alt="Slide 4" loading="lazy" /></div>
+    </div>
 
-  <div class="hero-content" data-aos="fade-up">
-    <img src="images/main logo.jpg" alt="Logo" class="hero-logo" />
-    <h1 style="color: black;">HUZAIFA FARAAN</h1>
-    <h2 style="color:  rgb(182, 13, 137);">ARCHITECTURE + Ðesign</h2>
-    <p>Imagination | Inspiration | Innovation<br>From Dream to Reality, Transforming Vision into Reality..✍</p>
-  </div>
-</section>
+    <div class="hero-content" data-aos="fade-up">
+      <img src="images/main logo.jpg" alt="Logo" class="hero-logo" loading="lazy" />
+      <h1 style="color: black;">HUZAIFA FARAAN</h1>
+      <h2>ARCHITECTURE + Ðesign</h2>
+      <p>Imagination | Inspiration | Innovation<br>From Dream to Reality, Transforming Vision into Reality..✍</p>
+      <div class="hero-cta">Let’s build your dream space ↓</div>
+    </div>
+  </section>
 
-  <!-- About Section -->
+  <!-- About -->
   <section id="about" class="about-section" data-aos="fade-up">
     <div class="about-container">
       <div class="about-text">
@@ -51,127 +81,103 @@
         </p>
       </div>
       <div class="about-image">
-        <img src="images/7.jpg" alt="Interior Design Studio" />
+        <img src="images/7.jpg" alt="Interior Design Studio" loading="lazy" />
       </div>
     </div>
   </section>
 
-<!-- Gallery Section -->
-<section class="project-tabs" data-aos="fade-up">
-  <h2 class="about-title">Creative Portfolio</h2>
-  <p>Discover my architectural journey through professional projects, personal workspace, and creative process</p>
+  <!-- Gallery Section -->
+  <section class="project-tabs" data-aos="fade-up">
+    <h2 class="about-title">Creative Portfolio</h2>
+    <p>Discover my architectural journey through professional projects, personal workspace, and creative process</p>
+    <div class="tabs">
+      <button class="tab-btn active" data-target="photos-section">Photos</button>
+      <button class="tab-btn" data-target="videos-section">Videos</button>
+    </div>
+  </section>
 
-  <div class="tabs">
-    <button class="tab-btn active" data-target="photos-section">Photos</button>
-    <button class="tab-btn" data-target="videos-section">Videos</button>
-  </div>
-</section>
+  <!-- Photos -->
+  <section id="photos-section" class="project-gallery">
+    <div class="project-grid">
+      <div class="project-item"><img src="images/liviingg.jpg" alt="Living Room" loading="lazy"/><div class="overlay"><h3>Living Room</h3></div></div>
+      <div class="project-item"><img src="images/kk.jpg" alt="Kitchen" loading="lazy"/><div class="overlay"><h3>Kitchen</h3></div></div>
+      <div class="project-item"><img src="images/off.jpg" alt="Office" loading="lazy"/><div class="overlay"><h3>Office</h3></div></div>
+      <div class="project-item"><img src="images/6.jpg" alt="Bedroom" loading="lazy"/><div class="overlay"><h3>Bedroom</h3></div></div>
+    </div>
+  </section>
 
-<!-- Photos Section -->
-<section id="photos-section" class="project-gallery">
-  <div class="project-grid">
-    <div class="project-item">
-      <img src="images/liviingg.jpg" alt="Modern Living Room" />
-      <div class="overlay"><h3>Living Room</h3></div>
+  <!-- Videos -->
+  <section id="videos-section" class="video-section" style="display: none;">
+    <h2>Video Walkthroughs</h2>
+    <div class="video-grid">
+      <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/231tKE8zV80" frameborder="0" allowfullscreen></iframe></div>
+      <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/cHTOWL6SFho" frameborder="0" allowfullscreen></iframe></div>
     </div>
-    <div class="project-item">
-      <img src="images/kk.jpg" alt="Luxury Kitchen" />
-      <div class="overlay"><h3>Kitchen</h3></div>
-    </div>
-    <div class="project-item">
-      <img src="images/off.jpg" alt="Office Design" />
-      <div class="overlay"><h3>Office</h3></div>
-    </div>
-    <div class="project-item">
-      <img src="images/6.jpg" alt="Bedroom Concept" />
-      <div class="overlay"><h3>Bedroom</h3></div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- Videos Section -->
-<section id="videos-section" class="video-section" style="display: none;">
-  <h2>Video Walkthroughs</h2>
-  <div class="video-grid">
-    <div class="video-wrapper">
-      <iframe src="https://www.youtube.com/embed/231tKE8zV80" frameborder="0" allowfullscreen></iframe>
+  <!-- Explore Section -->
+  <section class="explore-section" data-aos="fade-up">
+    <div class="explore-box">
+      <div class="explore-icon">🔍</div>
+      <h2 class="explore-heading">Explore My Work</h2>
+      <p class="explore-description">View my complete collection of architectural projects, personal workspace, and creative process videos.</p>
+      <a href="project.html" class="explore-btn-hover">Explore Portfolio</a>
     </div>
-    <div class="video-wrapper">
-      <iframe src="https://www.youtube.com/embed/cHTOWL6SFho" frameborder="0" allowfullscreen></iframe>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- Explore Section -->
-<section class="explore-section" data-aos="fade-up">
-  <div class="explore-box">
-    <div class="explore-icon">🔍</div>
-    <h2 class="explore-heading">Explore My Work</h2>
-    <p class="explore-description">
-      View my complete collection of architectural projects, personal workspace, and creative process videos.
-    </p>
-    <a href="project.html" class="explore-btn-hover">Explore Portfolio</a>
-  </div>
-</section>
-
-<!-- Contact Section -->
-<section id="contact" class="contact-area">
-  <div class="contact-wrapper">
-    <div class="contact-header">
-      <h2>Let's Create <strong>Something Beautiful</strong></h2>
-      <p>Ready to transform your space? Get in touch to discuss your project and bring your vision to life.</p>
-    </div>
-
-    <div class="info-contact-container">
-      <!-- Info -->
-      <div class="contact-card">
-        <h3>Contact Information</h3>
-        <p><strong>Architect:</strong> Sayed Huzaifa Faraan</p>
-        <p><strong>Email:</strong> hfarchitects166@gmail.com</p>
-        <p><strong>Phone:</strong> +91 744-7857802</p>
-        <p><strong>Mobile:</strong> +91 9420900210</p>
-        <h4>Business Hours</h4>
-        <p>Monday – Friday: 9:00 AM – 6:00 PM<br>Saturday: 10:00 AM – 4:00 PM<br>Sunday: Holidays</p>
-         <h4></h4>
-        <div class="socials">
-      
-          <a href="https://www.instagram.com/huzaifa_faraan_architects"></a>
-          <a href="https://youtube.com/@architecture_and_more"></a>
-          <a href="https://www.facebook.com/share/1L7ooEAVzF/"></a>
-  
-      </div>
+  <!-- Contact Section -->
+  <section id="contact" class="contact-area">
+    <div class="contact-wrapper">
+      <div class="contact-header">
+        <h2>Let's Create <strong>Something Beautiful</strong></h2>
+        <p>Ready to transform your space? Get in touch to discuss your project and bring your vision to life.</p>
       </div>
 
-      <!-- Form -->
-      <div class="contact-card">
-        <h3>Send a Message</h3>
-        <form id="contact-form">
-          <input type="text" name="name" placeholder="Your Name" required />
-          <input type="text" name="phone" placeholder="Your Phone Number" required />
-          <input type="email" name="email" placeholder="Your Email" required />
-          <textarea name="message" placeholder="Tell me about your project..." required></textarea>
-          <button type="submit">Send Message</button>
-        </form>
-        <p id="form-status" style="margin-top: 10px;"></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Footer -->
-<footer>
-  <p>&copy; 2025 Architect Studio</p>
-   <h4>Follow Us</h4>
-        <div class="socials">
-          <a href="https://www.instagram.com/huzaifa_faraan_architects">Instagram</a>
-          <a href="https://youtube.com/@architecture_and_more">YouTube</a>
-          <a href="https://www.facebook.com/share/1L7ooEAVzF/">Facebook</a>
+      <div class="info-contact-container">
+        <div class="contact-card">
+          <h3>Contact Information</h3>
+          <p><strong>Architect:</strong> Sayed Huzaifa Faraan</p>
+          <p><strong>Email:</strong> hfarchitects166@gmail.com</p>
+          <p><strong>Phone:</strong> +91 744-7857802</p>
+          <p><strong>Mobile:</strong> +91 9420900210</p>
+          <h4>Business Hours</h4>
+          <p>Mon – Fri: 9AM – 6PM<br>Sat: 10AM – 4PM<br>Sunday: Holiday</p>
+          <div class="socials">
+            <a href="https://www.instagram.com/huzaifa_faraan_architects"></a>
+            <a href="https://youtube.com/@architecture_and_more"></a>
+            <a href="https://www.facebook.com/share/1L7ooEAVzF/"></a>
+          </div>
         </div>
-</footer>
 
-<!-- Scripts -->
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
-<script src="script.js"></script>
+        <div class="contact-card">
+          <h3>Send a Message</h3>
+          <form id="contact-form">
+            <input type="text" name="name" placeholder="Your Name" required />
+            <input type="text" name="phone" placeholder="Your Phone Number" required />
+            <input type="email" name="email" placeholder="Your Email" required />
+            <textarea name="message" placeholder="Tell me about your project..." required></textarea>
+            <button type="submit">Send Message</button>
+          </form>
+          <p id="form-status" style="margin-top: 10px;"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Architect Studio</p>
+    <h4>Follow Us</h4>
+    <div class="socials">
+      <a href="https://www.instagram.com/huzaifa_faraan_architects">Instagram</a>
+      <a href="https://youtube.com/@architecture_and_more">YouTube</a>
+      <a href="https://www.facebook.com/share/1L7ooEAVzF/">Facebook</a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
