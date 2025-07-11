@@ -303,7 +303,7 @@ body {
   }
 }
 
-.whatsapp-btn {
+.whatsapps-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -316,10 +316,10 @@ body {
   font-weight: bold;
   transition: background 0.3s ease;
 }
-.whatsapp-btn:hover {
+.whatsapps-btn:hover {
   background-color: #1ebd5a;
 }
-.whatsapp-btn img {
+.whatsapps-btn img {
   width: 24px;
   height: 24px;
 }
@@ -524,6 +524,54 @@ footer h4 {
 #backToTop:hover {
   background-color: #b000a8;
 }
+
+.whatsapp-btn {
+  position: fixed;
+  bottom: 5.5rem; /* above backToTop button */
+  right: 2rem;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  color: #25D366;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, background 0.3s ease;
+  animation: bounce 2.5s ease-in-out infinite;
+}
+
+.whatsapp-btn:hover {
+  transform: scale(1.05);
+  background-color: #e6fcef;
+}
+
+.whatsapp-btn img {
+  width: 28px;
+  height: 28px;
+}
+
+/* Bounce animation */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* Optional: hide text on very small screens */
+@media (max-width: 480px) {
+  .whatsapp-btn span {
+    display: none;
+  }
+}
+
 
 /* Lightbox Modal */
 .lightbox {
