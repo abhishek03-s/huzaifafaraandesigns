@@ -34,24 +34,28 @@
   <!-- ✅ Back to Top Button -->
   <button id="backToTop" title="Go to top">↑</button>
 
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="navbar-left">
-      <img src="images/logo navbar.jpeg" alt="Logo" class="logo-img" />
-      <span class="logo-text">HUZAIFA FARAAN <br>ARCHITECTURE + <br>Ðesign</span>
-    </div>
-    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
-      <span class="sun">☀️</span>
-      <span class="moon">🌙</span>
-    </button>
-    <div class="hamburger">&#9776;</div>
-    <div class="nav-links" id="navLinks">
-      <a href="index.html">Home</a>
-      <a href="#about">About</a>
-      <a href="project.html">Projects</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
+ <nav class="navbar">
+  <div class="navbar-left">
+    <img src="images/logo navbar.jpeg" alt="Logo" class="logo-img" />
+     <span class="logo-text" style="font-family: Arial, Helvetica, sans-serif;">HUZAIFA FARAAN <br>ARCHITECTURE + <br> Ðesign</span>
+  
+  </div>
+
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="project.html">Projects</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
+    <div class="toggle-icon"></div>
+  </button>
+
+  <div class="hamburger" aria-label="Menu">&#9776;</div>
+</nav>
+
+
 
   <!-- Hero Section -->
   <section class="hero">
@@ -65,7 +69,7 @@
     <div class="hero-content" data-aos="fade-up">
       <img src="images/main logo.jpg" alt="Logo" class="hero-logo" loading="lazy" />
       <h1 style="color: black;">HUZAIFA FARAAN</h1>
-      <h2>ARCHITECTURE + Ðesign</h2>
+      <h2>ARCHITECTURE + ÐESIGN</h2>
       <p>Creating Spaces, Building Dreams, Step by Step.</p>
       <div class="hero-cta">Let’s Build Your Dream Space</div>
     </div>
@@ -75,14 +79,8 @@
   <!-- Gallery Section -->
   <section class="project-tabs" data-aos="fade-up">
     <h2 class="about-title">Discover my Architectural journey through Professional Projects, Personal Workspace, and Creative Process</h2>
-    <p></p>
-    <div class="tabs">
-      <button class="tab-btn active" data-target="photos-section">Photos</button>
-      <button class="tab-btn" data-target="videos-section">Videos</button>
-    </div>
-  </section>
-
-  <!-- Explore Section -->
+    
+     <!-- Explore Section -->
   <section class="explore-section" data-aos="fade-up">
     <div class="explore-box">
       <div class="explore-icon">🔍</div>
@@ -91,6 +89,14 @@
       <a href="project.html" class="explore-btn-hover">Explore Portfolio</a>
     </div>
   </section>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-target="photos-section">Photos</button>
+      <button class="tab-btn" data-target="videos-section">Videos</button>
+    </div>
+  </section>
+
+ 
 
 
   <!-- Photos -->
@@ -108,29 +114,41 @@
     <h2>Video Walkthroughs</h2>
     <div class="video-grid">
       <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/231tKE8zV80" frameborder="0" allowfullscreen></iframe></div>
-      <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/cHTOWL6SFho" frameborder="0" allowfullscreen></iframe></div>
+      <div class="video-wrapper"><iframe src="https://www.instagram.com/ekta_interior?igsh=MXAxeG9pbDZ3YTZrYw==" frameborder="0" allowfullscreen></iframe></div>
     </div>
   </section>
 
   
 
 
-  <!-- About -->
-  <section id="about" class="about-section" data-aos="fade-up">
-    <div class="about-container">
-      <div class="about-text">
-        <h2 class="about-title">Let's Create Something Beautiful</h2>
-        <p>Ready to transform your space? Get in touch to discuss your project and bring your vision to life.</p>
-     
-      </div>
-     
+<!-- Slogan -->
+<section id="about" class="about-section" data-aos="fade-up">
+  <div class="about-container" style="justify-content: center; text-align: center;">
+    <div class="about-text">
+      <h2 class="about-title">WE HAVE SOLUTIONS FOR YOUR SPACE RELATED ISSUES!</h2>
+      <p>
+        Need a Dream Design Project? <br>
+        
+        Book a Design request by just one click.
+      </p>
+
+      <!-- WhatsApp Button -->
+      <a href="https://wa.me/917447857802" target="_blank" class="whatsapp-btn">
+        <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp" />
+        
+      </a>
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- Contact Section -->
+
   <section id="contact" class="contact-area">
     <div class="contact-wrapper">
       <div class="contact-header">
+
+        <!-- About -->
         <h2><strong>About Us</strong></h2>
          <p>
           Our Firm is an exclusive Architecture - Interior Design Firm with Over a Decade of Experience. Unique, Stylish & Contemporary, it has Designed & Executed Premium & Exclusive Homes, Offices for Clients in the Luxury & Ultra Luxury Segments..!!
