@@ -129,6 +129,41 @@ body {
   }
 }
 
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .theme-toggle {
+    order: 1;
+    margin-right: auto;
+  }
+
+  .hamburger {
+    display: block;
+    order: 2;
+    z-index: 9999;
+  }
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem;
+  color: var(--text);
+  transition: color 0.3s ease;
+}
+.theme-toggle:hover {
+  color: var(--accent);
+}
+.sun,
+.moon {
+  transition: opacity 0.3s ease;
+}
+
 
 /* Hero */
 /* Hero */
@@ -267,6 +302,28 @@ body {
     flex-direction: column;
   }
 }
+
+.whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  background-color: #25D366;
+  color: white;
+  padding: 0.7rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+.whatsapp-btn:hover {
+  background-color: #1ebd5a;
+}
+.whatsapp-btn img {
+  width: 24px;
+  height: 24px;
+}
+
 
 /* Contact Section */
 #contact {
@@ -568,4 +625,32 @@ footer h4 {
   .video-wrapper iframe {
     height: 180px;
   }
+}
+
+
+
+/* Toggle switch icon (replaces sun/moon) */
+.theme-toggle .toggle-icon {
+  width: 40px;
+  height: 22px;
+  border-radius: 999px;
+  background: var(--border);
+  position: relative;
+  transition: background 0.3s ease;
+}
+
+.theme-toggle .toggle-icon::before {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  top: 2px;
+  left: 2px;
+  background: var(--accent);
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+body.dark .theme-toggle .toggle-icon::before {
+  transform: translateX(18px);
 }
