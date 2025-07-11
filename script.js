@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const sun = themeToggle?.querySelector(".sun");
   const moon = themeToggle?.querySelector(".moon");
 
-  // Load saved theme
   const savedTheme = localStorage.getItem("theme");
   if (savedTheme === "dark") {
     body.classList.add("dark");
@@ -28,11 +27,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // ✅ Hamburger Menu
+  // ✅ Hamburger Menu + Auto-Close
   const hamburger = document.querySelector(".hamburger");
   const navLinks = document.getElementById("navLinks");
+
   hamburger?.addEventListener("click", () => {
     navLinks?.classList.toggle("show");
+  });
+
+  // ✅ Auto-close menu when link is clicked (mobile only)
+  document.querySelectorAll("#navLinks a").forEach((link) => {
+    link.addEventListener("click", () => {
+      if (window.innerWidth <= 768 && navLinks.classList.contains("show")) {
+        navLinks.classList.remove("show");
+      }
+    });
   });
 
   // ✅ Hero Slider (index.html only)
@@ -126,17 +135,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const lightboxImg = document.querySelector(".lightbox-img");
   const lightboxClose = document.querySelector(".lightbox-close");
 
-  // Open lightbox on clicking any project image inside .project-item
   document.querySelectorAll(".project-item img").forEach((img) => {
     img.addEventListener("click", () => {
       lightboxImg.src = img.src;
       lightboxImg.alt = img.alt;
       lightbox.classList.add("show");
-      document.body.style.overflow = "hidden"; // prevent background scroll
+      document.body.style.overflow = "hidden";
     });
   });
 
-  // Close lightbox on clicking close button or outside the image
   lightboxClose.addEventListener("click", closeLightbox);
   lightbox.addEventListener("click", (e) => {
     if (e.target === lightbox) closeLightbox();
