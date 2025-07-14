@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // ✅ Hamburger Menu
   const hamburger = document.querySelector(".hamburger");
   const navLinks = document.getElementById("navLinks");
-
   hamburger?.addEventListener("click", () => navLinks?.classList.toggle("show"));
 
   document.querySelectorAll("#navLinks a").forEach(link => {
@@ -29,40 +28,57 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // ✅ Hero Slider (index.html only)
+  // ✅ Hero Slider with Dynamic Title/Description
   const heroSlides = document.querySelectorAll(".hero-slide");
-  if (heroSlides.length > 0) {
-    let currentSlide = 0;
-    const showHeroSlide = (index) => {
-      heroSlides.forEach((slide, i) =>
-        slide.classList.toggle("active", i === index)
-      );
-    };
-    showHeroSlide(currentSlide);
-    setInterval(() => {
-      currentSlide = (currentSlide + 1) % heroSlides.length;
-      showHeroSlide(currentSlide);
-    }, 5000);
-  }
+  const heroRoleTitle = document.querySelector(".hero-role-title");
+  const heroRoleDesc = document.querySelector(".hero-role-description");
+  const heroContent = document.querySelector(".hero-content");
 
-  // ✅ Project Tabs
-  const tabButtons = document.querySelectorAll(".tab-btn");
-  const photosSection = document.getElementById("photos-section");
-  const videosSection = document.getElementById("videos-section");
+  const roleTitles = [
+    "Architecture",
+    "Interior",
+    "Planner",
+    "Project Management",
+    "3D Visualization",
+    "Landscape",
+    "Site Execution"
+  ];
 
-  tabButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const target = btn.dataset.target;
-      tabButtons.forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
-      if (photosSection && videosSection) {
-        photosSection.style.display = "none";
-        videosSection.style.display = "none";
-        if (target === "photos-section") photosSection.style.display = "block";
-        if (target === "videos-section") videosSection.style.display = "block";
-      }
+  const roleDescriptions = [
+    "Designing timeless structures that merge creativity and functionality.",
+    "Creating elegant, functional, and personalized interior environments.",
+    "Transforming your vision into structured, practical blueprints.",
+    "Overseeing your project from concept to completion with precision.",
+    "Bringing concepts to life with detailed, realistic 3D renders.",
+    "Designing green, beautiful, and functional outdoor spaces.",
+    "Executing site plans with accuracy and professional care."
+  ];
+
+  let currentSlide = 0;
+
+  const updateHeroSlide = (index) => {
+    heroSlides.forEach((slide, i) => {
+      slide.classList.toggle("active", i === index);
     });
-  });
+
+    heroContent.classList.remove("show");
+
+    setTimeout(() => {
+      if (heroRoleTitle && heroRoleDesc) {
+        heroRoleTitle.textContent = roleTitles[index] || "";
+        heroRoleDesc.textContent = roleDescriptions[index] || "";
+      }
+      heroContent.classList.add("show");
+    }, 300);
+  };
+
+  updateHeroSlide(currentSlide);
+  setTimeout(() => heroContent.classList.add("show"), 100);
+
+  setInterval(() => {
+    currentSlide = (currentSlide + 1) % heroSlides.length;
+    updateHeroSlide(currentSlide);
+  }, 5000);
 
   // ✅ WhatsApp Form
   const contactForm = document.getElementById("contact-form");
@@ -89,22 +105,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ✅ Back to Top Button
+  // ✅ Back to Top
   const backToTopBtn = document.createElement("button");
   backToTopBtn.id = "backToTop";
   backToTopBtn.title = "Back to top";
   backToTopBtn.textContent = "↑";
   document.body.appendChild(backToTopBtn);
-
   window.addEventListener("scroll", () => {
     backToTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
   });
-
   backToTopBtn.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
-  // ✅ Lightbox with scrollable wrapper
+  // ✅ Lightbox Gallery
   const lightbox = document.getElementById("lightbox");
   const lightboxWrapper = document.querySelector(".lightbox-wrapper");
   const lightboxClose = document.querySelector(".lightbox-close");
@@ -113,22 +127,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   images.forEach((img, index) => {
     img.addEventListener("click", () => {
-      // Clear previous content
       lightboxWrapper.innerHTML = "";
-
-      // Append all images into lightboxWrapper
       images.forEach((imgEl) => {
         const clone = imgEl.cloneNode(true);
         clone.classList.add("lightbox-img-item");
         lightboxWrapper.appendChild(clone);
       });
-
-      // Open lightbox and scroll to clicked image
       lightbox.classList.add("show");
       document.body.style.overflow = "hidden";
       caption.textContent = img.alt || "";
 
-      // Scroll to correct image using requestAnimationFrame
       requestAnimationFrame(() => {
         const targetImg = lightboxWrapper.children[index];
         if (targetImg) {
@@ -138,15 +146,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  lightboxClose?.addEventListener("click", closeLightbox);
-  lightbox?.addEventListener("click", (e) => {
-    if (e.target === lightbox) closeLightbox();
-  });
-
   function closeLightbox() {
     lightbox.classList.remove("show");
     document.body.style.overflow = "";
     lightboxWrapper.innerHTML = "";
     caption.textContent = "";
   }
+
+  lightboxClose?.addEventListener("click", closeLightbox);
+  lightbox?.addEventListener("click", (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
 });
