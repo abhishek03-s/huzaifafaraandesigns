@@ -105,13 +105,15 @@
     </div>
   </div>
 </section>
+ 
+<section>
 
 
-  <!-- Gallery Section -->
-  <section class="project-tabs" data-aos="fade-up">
-    <h2 class="about-title">Discover my Architectural journey through Professional Projects, Personal Workspace, and Creative Process</h2>
-    
-     <!-- Explore Section -->
+  <!-- Fixed Project Tab Section -->
+<section class="project-tab-section" data-aos="fade-up">
+  <h2 class="about-title">Discover my Architectural journey through Professional Projects, Personal Workspace, and Creative Process</h2>
+
+   <!-- Explore Section -->
   <section class="explore-section" data-aos="fade-up">
     <div class="explore-box">
       <div class="explore-icon">🔍</div>
@@ -121,51 +123,119 @@
     </div>
   </section>
 
-    <div class="tabs">
-      <button class="tab-btn active" data-target="photos-section">Photos</button>
-      <button class="tab-btn" data-target="videos-section">Videos</button>
-    </div>
-  </section>
+  <div class="tabs">
+    <button class="tab-btn active" data-target="photos-section">Photos</button>
+    <button class="tab-btn" data-target="videos-section">Videos</button>
+  </div>
 
- 
-
-
-  <!-- Photos -->
-  <section id="photos-section" class="project-gallery">
-    <div class="project-grid">
-      <div class="project-item"><img src="images/liviingg.jpg" alt="Living Room" loading="lazy"/><div class="overlay"><h3>Living Room</h3></div></div>
-      <div class="project-item"><img src="images/kk.jpg" alt="Kitchen" loading="lazy"/><div class="overlay"><h3>Kitchen</h3></div></div>
-      <div class="project-item"><img src="images/off.jpg" alt="Office" loading="lazy"/><div class="overlay"><h3>Office</h3></div></div>
-      <div class="project-item"><img src="images/6.jpg" alt="Bedroom" loading="lazy"/><div class="overlay"><h3>Bedroom</h3></div></div>
-    </div>
-  </section>
-
-  
-
-  <!-- Videos -->
-<section id="videos-section" class="video-section" style="display: none;">
-  <h2>Video Walkthroughs</h2>
-  <div class="video-grid">
-
-    <!-- YouTube Example -->
-    <div class="video-wrapper">
-      <iframe src="https://www.youtube.com/embed/231tKE8zV80" frameborder="0" allowfullscreen loading="lazy"></iframe>
+  <div id="photos-section" class="tab-content" style="display: block;">
+    <div class="category-container">
+      
+      
+    <!-- Architecture Project -->
+    <div class="category-slide">
+      <a href="project.html" class="category-link">
+        <div class="slider square-slider" data-category="architecture">
+          <img src="images/bg.jpg" alt="Architecture Project 1" />
+          <img src="images/about.jpg" alt="Architecture Project 2" />
+          <img src="images/bg2.jpg" alt="Architecture Project 3" />
+        </div>
+        <div class="category-title">Architecture Project</div>
+      </a>
     </div>
 
-    <!-- Instagram Reel Embed -->
-    <div class="video-wrapper">
-      <blockquote class="instagram-media" data-instgrm-permalink="" data-instgrm-version="14" style="margin: 0 auto; max-width: 100%;">
-      </blockquote>
+    <!-- Interior -->
+    <div class="category-slide">
+      <a href="project.html" class="category-link">
+        <div class="slider square-slider" data-category="interior">
+          <img src="images/5.jpg" alt="Interior 1" />
+          <img src="images/6.jpg" alt="Interior 2" />
+          <img src="images/7.jpg" alt="Interior 3" />
+        </div>
+        <div class="category-title">Interior</div>
+      </a>
+    </div>
+
+    <!-- Planner -->
+    <div class="category-slide">
+      <a href="project.html" class="category-link">
+        <div class="slider square-slider" data-category="planner">
+          <img src="images/bg.jpg" alt="Planner 1" />
+          <img src="images/bg2.jpg" alt="Planner 2" />
+          <img src="images/bg1.jpg" alt="Planner 3" />
+        </div>
+        <div class="category-title">Planner</div>
+      </a>
+    </div>
+
+    <!-- Project Management -->
+    <div class="category-slide">
+      <a href="project.html" class="category-link">
+        <div class="slider square-slider" data-category="project-management">
+          <img src="images/bg6.jpg" alt="Project Management 1" />
+          <img src="images/bg7.jpg" alt="Project Management 2" />
+          <img src="images/kk.jpg" alt="Project Management 3" />
+        </div>
+        <div class="category-title">Project Management</div>
+      </a>
+    </div>
+
+    <!-- 3D Visualization -->
+    <div class="category-slide">
+      <a href="project.html" class="category-link">
+        <div class="slider square-slider" data-category="3d">
+          <img src="images/liviingg.jpg" alt="3D Visualization 1" />
+          <img src="images/bg1.jpg" alt="3D Visualization 2" />
+          <img src="images/kk.jpg" alt="3D Visualization 3" />
+        </div>
+        <div class="category-title">3D Visualization</div>
+      </a>
+    </div>
+
+    <!-- Landscape -->
+    <div class="category-slide">
+      <a href="project.html" class="category-link">
+        <div class="slider square-slider" data-category="landscape">
+          <img src="images/off.jpg" alt="Landscape 1" />
+          <img src="images/bg4.jpg" alt="Landscape 2" />
+          <img src="images/7.jpg" alt="Landscape 3" />
+        </div>
+        <div class="category-title">Landscape</div>
+      </a>
+    </div>
+
+    <!-- Site Execution -->
+    <div class="category-slide">
+      <a href="project.html" class="category-link">
+        <div class="slider square-slider" data-category="site-execution">
+          <img src="images/bg1.jpg" alt="Site Execution 1" />
+          <img src="images/bg2.jpg" alt="Site Execution 2" />
+          <img src="images/bg4.jpg" alt="Site Execution 3" />
+        </div>
+        <div class="category-title">Site Execution</div>
+      </a>
     </div>
 
   </div>
+
+      <!-- All 7 project categories here (Architecture, Interior, etc.) -->
+      <!-- Keep your previous 7 <div class="category-slide"> blocks here exactly as you shared -->
+    </div>
+  </div>
+
+  <div id="videos-section" class="tab-content" style="display: none;">
+    <h2>Video Walkthroughs</h2>
+    <div class="video-grid">
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/231tKE8zV80" frameborder="0" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="video-wrapper">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CxBa8A9rWZ7/" data-instgrm-version="14" style="margin: 0 auto; max-width: 100%;"></blockquote>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- Load Instagram Embed Script -->
-<script async src="//www.instagram.com/embed.js"></script>
-
-
-  
 
 
 <!-- Slogan -->
