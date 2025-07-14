@@ -1,160 +1,146 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // ✅ AOS Animations
-  if (typeof AOS !== "undefined") {
-    AOS.init({ duration: 1000, once: true });
-  }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HUZAIFA FARAAN ARCHITECTURE + ÐESIGN</title>
 
-  // ✅ Light/Dark Mode
-  const themeToggle = document.getElementById("theme-toggle");
-  const body = document.body;
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme === "dark") body.classList.add("dark");
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="HUZAIFA FARAAN Architecture + Design — Creating unique, stylish, and contemporary architectural and interior design projects." />
+  <meta name="keywords" content="Architecture, Interior Design, HUZAIFA FARAAN, Modern Homes, Luxury Design, Office Interiors" />
+  <meta name="author" content="HUZAIFA FARAAN" />
+  <meta property="og:title" content="HUZAIFA FARAAN ARCHITECTURE + ÐESIGN" />
+  <meta property="og:description" content="Creating unique, stylish, and contemporary architectural and interior design projects." />
+  <meta property="og:type" content="website" />
+  <!-- Add your site URL below -->
+  <meta property="og:url" content="https://yourwebsite.com" />
+  <!-- Optional og:image for social previews -->
+  <meta property="og:image" content="https://yourwebsite.com/images/og-image.jpg" />
 
-  themeToggle?.addEventListener("click", () => {
-    body.classList.toggle("dark");
-    localStorage.setItem("theme", body.classList.contains("dark") ? "dark" : "light");
-  });
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <!-- Apple touch icon -->
+  <link rel="apple-touch-icon" href="images/favicon-apple.png" />
 
-  // ✅ Hamburger Menu
-  const hamburger = document.querySelector(".hamburger");
-  const navLinks = document.getElementById("navLinks");
-  hamburger?.addEventListener("click", () => navLinks?.classList.toggle("show"));
+  <!-- Fonts and stylesheets -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
 
-  document.querySelectorAll("#navLinks a").forEach(link => {
-    link.addEventListener("click", () => {
-      if (window.innerWidth <= 768 && navLinks.classList.contains("show")) {
-        navLinks.classList.remove("show");
-      }
-    });
-  });
+<body>
+  <!-- Back to Top Button -->
+<!-- WhatsApp Button -->
+<a href="https://wa.me/919420900210" class="whatsapp-btn" target="_blank" aria-label="Chat on WhatsApp">
+  <span>Chat on WhatsApp</span>
+  <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp Icon" />
+</a>
 
-  // ✅ Hero Slider with Dynamic Title/Description
-  const heroSlides = document.querySelectorAll(".hero-slide");
-  const heroRoleTitle = document.querySelector(".hero-role-title");
-  const heroRoleDesc = document.querySelector(".hero-role-description");
-  const heroContent = document.querySelector(".hero-content");
 
-  const roleTitles = [
-    "Architecture",
-    "Interior",
-    "Planner",
-    "Project Management",
-    "3D Visualization",
-    "Landscape",
-    "Site Execution"
-  ];
 
-  const roleDescriptions = [
-    "Designing timeless structures that merge creativity and functionality.",
-    "Creating elegant, functional, and personalized interior environments.",
-    "Transforming your vision into structured, practical blueprints.",
-    "Overseeing your project from concept to completion with precision.",
-    "Bringing concepts to life with detailed, realistic 3D renders.",
-    "Designing green, beautiful, and functional outdoor spaces.",
-    "Executing site plans with accuracy and professional care."
-  ];
 
-  let currentSlide = 0;
+<!-- Back to Top Button -->
+<button id="backToTop" title="Go to top">↑</button>
 
-  const updateHeroSlide = (index) => {
-    heroSlides.forEach((slide, i) => {
-      slide.classList.toggle("active", i === index);
-    });
 
-    heroContent.classList.remove("show");
 
-    setTimeout(() => {
-      if (heroRoleTitle && heroRoleDesc) {
-        heroRoleTitle.textContent = roleTitles[index] || "";
-        heroRoleDesc.textContent = roleDescriptions[index] || "";
-      }
-      heroContent.classList.add("show");
-    }, 300);
-  };
 
-  updateHeroSlide(currentSlide);
-  setTimeout(() => heroContent.classList.add("show"), 100);
+<nav class="navbar">
+  <div class="navbar-left">
+    <img src="images/logo navbar.jpeg" alt="Logo" class="logo-img" />
+    <span class="logo-text" style="font-family: Arial, Helvetica, sans-serif;">HUZAIFA FARAAN <br>ARCHITECTURE + <br> ÐESIGN</span>
+  </div>
 
-  setInterval(() => {
-    currentSlide = (currentSlide + 1) % heroSlides.length;
-    updateHeroSlide(currentSlide);
-  }, 5000);
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="project.html">Projects</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
 
-  // ✅ WhatsApp Form
-  const contactForm = document.getElementById("contact-form");
-  const formStatus = document.getElementById("form-status");
-  if (contactForm) {
-    contactForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const name = contactForm.querySelector("[name='name']").value.trim();
-      const phone = contactForm.querySelector("[name='phone']").value.trim();
-      const email = contactForm.querySelector("[name='email']").value.trim();
-      const message = contactForm.querySelector("[name='message']").value.trim();
-      if (!name || !phone || !email || !message) {
-        formStatus.textContent = "❗ Please fill in all fields.";
-        return;
-      }
-      const fullMessage = encodeURIComponent(
-        `*New Project Inquiry*\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nMessage: ${message}`
-      );
-      const whatsappNumber = "917447857802";
-      const whatsappURL = `https://wa.me/${whatsappNumber}?text=${fullMessage}`;
-      window.open(whatsappURL, "_blank");
-      formStatus.textContent = "✅ Opening WhatsApp...";
-      contactForm.reset();
-    });
-  }
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
+    <div class="toggle-icon"></div>
+  </button>
 
-  // ✅ Back to Top
-  const backToTopBtn = document.createElement("button");
-  backToTopBtn.id = "backToTop";
-  backToTopBtn.title = "Back to top";
-  backToTopBtn.textContent = "↑";
-  document.body.appendChild(backToTopBtn);
-  window.addEventListener("scroll", () => {
-    backToTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
-  });
-  backToTopBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
+  <div class="hamburger" aria-label="Menu">&#9776;</div>
+</nav>
 
-  // ✅ Lightbox Gallery
-  const lightbox = document.getElementById("lightbox");
-  const lightboxWrapper = document.querySelector(".lightbox-wrapper");
-  const lightboxClose = document.querySelector(".lightbox-close");
-  const caption = document.querySelector(".lightbox-caption");
-  const images = Array.from(document.querySelectorAll(".project-item img"));
 
-  images.forEach((img, index) => {
-    img.addEventListener("click", () => {
-      lightboxWrapper.innerHTML = "";
-      images.forEach((imgEl) => {
-        const clone = imgEl.cloneNode(true);
-        clone.classList.add("lightbox-img-item");
-        lightboxWrapper.appendChild(clone);
-      });
-      lightbox.classList.add("show");
-      document.body.style.overflow = "hidden";
-      caption.textContent = img.alt || "";
+  <!-- Project Tabs -->
+  <section class="project-tabs" data-aos="fade-up">
+    <h2>Our Projects</h2>
+    <div class="tabs">
+      <button class="tab-btn active" data-target="photos-section">Photos</button>
+      <button class="tab-btn" data-target="videos-section">Videos</button>
+    </div>
+  </section>
 
-      requestAnimationFrame(() => {
-        const targetImg = lightboxWrapper.children[index];
-        if (targetImg) {
-          targetImg.scrollIntoView({ behavior: "instant", inline: "center" });
-        }
-      });
-    });
-  });
+  <!-- Photos Section -->
+  <section id="photos-section" class="project-gallery">
+    <div class="project-grid">
+      <div class="project-item" data-aos="fade-up"><img src="images/1.jpg" alt="Modern Living Room" loading="lazy" /><div class="overlay"><h3>Living Room</h3></div></div>
+      <div class="project-item" data-aos="fade-up"><img src="images/3.jpg" alt="Luxury Kitchen" loading="lazy" /><div class="overlay"><h3>Kitchen</h3></div></div>
+      <div class="project-item" data-aos="fade-up"><img src="images/off.jpg" alt="Office Design" loading="lazy" /><div class="overlay"><h3>Office</h3></div></div>
+      <div class="project-item" data-aos="fade-up"><img src="images/6.jpg" alt="Bedroom Concept" loading="lazy" /><div class="overlay"><h3>Bedroom</h3></div></div>
+      <div class="project-item" data-aos="fade-up"><img src="images/1.jpg" alt="Design View" loading="lazy" /></div>
+      <div class="project-item" data-aos="fade-up"><img src="images/2.jpg" alt="Concept Render" loading="lazy" /></div>
+      <div class="project-item" data-aos="fade-up"><img src="images/7.jpg" alt="Interior Space" loading="lazy" /></div>
+      <div class="project-item" data-aos="fade-up"><img src="images/bg2.jpg" alt="Minimalist Office" loading="lazy" /></div>
+      <div class="project-item" data-aos="fade-up"><img src="images/bg4.jpg" alt="Home Layout" loading="lazy" /></div>
+      <div class="project-item" data-aos="fade-up"><img src="images/7.jpg" alt="Creative Area" loading="lazy" /></div>
+      <div class="project-item" data-aos="fade-up"><img src="images/bg5.jpg" alt="Workspace" loading="lazy" /></div>
+      <div class="project-item" data-aos="fade-up"><img src="images/4.jpg" alt="Open Room" loading="lazy" /></div>
+    </div>
+  </section>
 
-  function closeLightbox() {
-    lightbox.classList.remove("show");
-    document.body.style.overflow = "";
-    lightboxWrapper.innerHTML = "";
-    caption.textContent = "";
-  }
+  <!-- Videos Section -->
+  <section id="videos-section" class="video-section" style="display: none;" data-aos="fade-up">
+    <h2>Video Walkthroughs</h2>
+    <div class="video-grid">
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/231tKE8zV80" frameborder="0" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/cHTOWL6SFho" frameborder="0" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
 
-  lightboxClose?.addEventListener("click", closeLightbox);
-  lightbox?.addEventListener("click", (e) => {
-    if (e.target === lightbox) closeLightbox();
-  });
-});
+  <!-- Footer -->
+<footer>
+  <p>&copy; 2025 Architect Studio</p>
+  <h4>Follow Us On</h4>
+  <div class="socials">
+    <a href="https://wa.me/919420900210" target="_blank" aria-label="WhatsApp">
+      <img src="https://img.icons8.com/color/24/000000/whatsapp--v1.png" alt="WhatsApp" />
+    </a>
+    <a href="https://www.facebook.com/share/1L7ooEAVzF/" target="_blank" aria-label="Facebook">
+      <img src="https://img.icons8.com/color/24/000000/facebook-new.png" alt="Facebook" />
+    </a>
+    <a href="https://www.instagram.com/huzaifa_faraan_architects" target="_blank" aria-label="Instagram">
+      <img src="https://img.icons8.com/color/24/000000/instagram-new--v1.png" alt="Instagram" />
+    </a>
+    <a href="https://youtube.com/@architecture_and_more" target="_blank" aria-label="YouTube">
+      <img src="https://img.icons8.com/color/24/000000/youtube-play.png" alt="YouTube" />
+    </a>
+  </div>
+</footer>
+
+
+<!-- Lightbox Modal -->
+<div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="Expanded image view">
+  <button class="lightbox-close" aria-label="Close">&times;</button>
+
+  <div class="lightbox-wrapper"></div>
+
+  <p class="lightbox-caption"></p>
+</div>
+
+
+
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
