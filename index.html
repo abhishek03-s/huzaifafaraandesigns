@@ -113,29 +113,29 @@
   <!-- Fixed Project Tab Section -->
 <section class="project-tab-section" data-aos="fade-up">
   <h2 class="about-title" style="font-family: 'chiller',sans-serif;">Discover my Architectural journey through Professional Projects, Personal Workspace, and Creative Process</h2>
-
-   <!-- Explore Section -->
-  <section class="explore-section" data-aos="fade-up">
-    <div class="explore-box">
-      <div class="explore-icon">🔍</div>
-      <h2 class="explore-heading">Explore My Work</h2>
-      <p class="explore-description">View my complete collection of architectural projects, personal workspace, and creative process videos.</p>
-      <a href="project.html" class="explore-btn-hover">Explore Portfolio</a>
-    </div>
-  </section>
-
-  <div class="tabs">
-    <button class="tab-btn active" data-target="photos-section">Photos</button>
-    <button class="tab-btn" data-target="videos-section">Videos</button>
+<!-- Explore Section -->
+<section class="explore-section" data-aos="fade-up">
+  <div class="explore-box">
+    <div class="explore-icon">🔍</div>
+    <h2 class="explore-heading">Explore My Work</h2>
+    <p class="explore-description">View my complete collection of architectural projects, personal workspace, and creative process videos.</p>
+    <a href="project.html" class="explore-btn-hover">Explore Portfolio</a>
   </div>
+</section>
 
-  <div id="photos-section" class="tab-content" style="display: block;">
-    <div class="category-container">
-      
-      
+<!-- Photos & Videos Tabs -->
+<div class="tabs">
+  <button class="tab-btn active" data-target="photos-section">Photos</button>
+  <button class="tab-btn" data-target="videos-section">Videos</button>
+</div>
+
+<!-- Photos Section -->
+<div id="photos-section" class="tab-content" style="display: block;">
+  <div class="category-container">
+
     <!-- Architecture Project -->
     <div class="category-slide">
-      <a href="project.html" class="category-link">
+      <a href="project.html?category=architecture" class="category-link">
         <div class="slider square-slider" data-category="architecture">
           <img src="images/bg.jpg" alt="Architecture Project 1" />
           <img src="images/about.jpg" alt="Architecture Project 2" />
@@ -147,7 +147,7 @@
 
     <!-- Interior -->
     <div class="category-slide">
-      <a href="project.html" class="category-link">
+      <a href="project.html?category=interior" class="category-link">
         <div class="slider square-slider" data-category="interior">
           <img src="images/5.jpg" alt="Interior 1" />
           <img src="images/6.jpg" alt="Interior 2" />
@@ -159,7 +159,7 @@
 
     <!-- Planner -->
     <div class="category-slide">
-      <a href="project.html" class="category-link">
+      <a href="project.html?category=planner" class="category-link">
         <div class="slider square-slider" data-category="planner">
           <img src="images/bg.jpg" alt="Planner 1" />
           <img src="images/bg2.jpg" alt="Planner 2" />
@@ -171,8 +171,8 @@
 
     <!-- Project Management -->
     <div class="category-slide">
-      <a href="project.html" class="category-link">
-        <div class="slider square-slider" data-category="project-management">
+      <a href="project.html?category=management" class="category-link">
+        <div class="slider square-slider" data-category="management">
           <img src="images/bg6.jpg" alt="Project Management 1" />
           <img src="images/bg7.jpg" alt="Project Management 2" />
           <img src="images/kk.jpg" alt="Project Management 3" />
@@ -183,8 +183,8 @@
 
     <!-- 3D Visualization -->
     <div class="category-slide">
-      <a href="project.html" class="category-link">
-        <div class="slider square-slider" data-category="3d">
+      <a href="project.html?category=visualization" class="category-link">
+        <div class="slider square-slider" data-category="visualization">
           <img src="images/liviingg.jpg" alt="3D Visualization 1" />
           <img src="images/bg1.jpg" alt="3D Visualization 2" />
           <img src="images/kk.jpg" alt="3D Visualization 3" />
@@ -195,7 +195,7 @@
 
     <!-- Landscape -->
     <div class="category-slide">
-      <a href="project.html" class="category-link">
+      <a href="project.html?category=landscape" class="category-link">
         <div class="slider square-slider" data-category="landscape">
           <img src="images/off.jpg" alt="Landscape 1" />
           <img src="images/bg4.jpg" alt="Landscape 2" />
@@ -207,8 +207,8 @@
 
     <!-- Site Execution -->
     <div class="category-slide">
-      <a href="project.html" class="category-link">
-        <div class="slider square-slider" data-category="site-execution">
+      <a href="project.html?category=site" class="category-link">
+        <div class="slider square-slider" data-category="site">
           <img src="images/bg1.jpg" alt="Site Execution 1" />
           <img src="images/bg2.jpg" alt="Site Execution 2" />
           <img src="images/bg4.jpg" alt="Site Execution 3" />
@@ -218,25 +218,20 @@
     </div>
 
   </div>
+</div>
 
-      <!-- All 7 project categories here (Architecture, Interior, etc.) -->
-      <!-- Keep your previous 7 <div class="category-slide"> blocks here exactly as you shared -->
+<!-- Videos Section -->
+<div id="videos-section" class="tab-content" style="display: none;">
+  <h2>Video Walkthroughs</h2>
+  <div class="video-grid">
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/231tKE8zV80" frameborder="0" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <div class="video-wrapper">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CxBa8A9rWZ7/" data-instgrm-version="14" style="margin: 0 auto; max-width: 100%;"></blockquote>
     </div>
   </div>
-
-  <div id="videos-section" class="tab-content" style="display: none;">
-    <h2>Video Walkthroughs</h2>
-    <div class="video-grid">
-      <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/231tKE8zV80" frameborder="0" allowfullscreen loading="lazy"></iframe>
-      </div>
-      <div class="video-wrapper">
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CxBa8A9rWZ7/" data-instgrm-version="14" style="margin: 0 auto; max-width: 100%;"></blockquote>
-      </div>
-    </div>
-  </div>
-</section>
-
+</div>
 
 
 <!-- Slogan -->
