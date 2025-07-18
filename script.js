@@ -242,3 +242,4 @@ document.addEventListener("DOMContentLoaded", () => {
     filterProjects("all"); // Show all by default
   }
 });
+
