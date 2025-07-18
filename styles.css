@@ -1244,28 +1244,47 @@ body.dark .theme-toggle .toggle-icon::before {
   color: white;
 }
 
+
+
 .branding-section {
   padding: 40px 20px;
   text-align: center;
-  background-color: #f5f5f5; /* Optional */
-  /* Remove if there's a big background image */
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.branding-content {
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .branding-logo {
   max-width: 200px;
   height: auto;
   margin-bottom: 20px;
+  border-radius: 20%;
 }
 
-.branding-content h1,
-.branding-content h2 {
-  margin: 10px 0;
+.branding-name {
   font-size: 1.8rem;
+  margin: 0.2rem 0;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.branding-role {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--accent); /* ✅ stays pink in all modes */
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .branding-slogan {
   font-size: 1rem;
-  max-width: 600px;
-  margin: 0 auto;
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1.4;
 }
 
