@@ -1289,3 +1289,12 @@ body.dark .theme-toggle .toggle-icon::before {
   }
 }
 
+/* Smaller height for hero */
+.small-hero {
+  height: 50vh; /* smaller than normal hero */
+}
+
+.small-hero .hero-slide img {
+  height: 100%;
+  object-fit: cover;
+}
