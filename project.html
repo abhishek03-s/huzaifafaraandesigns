@@ -26,6 +26,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link href="https://fonts.cdnfonts.com/css/chiller" rel="stylesheet">
+                
 </head>
 
 <body>
@@ -66,14 +68,25 @@
 </nav>
 
 
+
+
   <!-- Project Tabs -->
-  <section class="project-tabs" data-aos="fade-up">
-    <h2>Our Projects</h2>
-    <div class="tabs">
-      <button class="tab-btn active" data-target="photos-section">Photos</button>
-      <button class="tab-btn" data-target="videos-section">Videos</button>
-    </div>
-  </section>
+ <section class="project-tabs" data-aos="fade-up">
+  <h2>Our Projects</h2>
+  <div class="tabs">
+    <button class="tab-btn active" data-filter="all">All</button>
+    <button class="tab-btn" data-filter="architecture">Architecture</button>
+    <button class="tab-btn" data-filter="interior">Interior</button>
+    <button class="tab-btn" data-filter="planner">Planner</button>
+    <button class="tab-btn" data-filter="management">Project Management</button>
+    <button class="tab-btn" data-filter="visualization">3D Visualization</button>
+    <button class="tab-btn" data-filter="landscape">Landscape</button>
+    <button class="tab-btn" data-filter="site">Site Execution</button>
+  </div>
+</section>
+
+
+  
 
   <!-- Photos Section -->
   <section id="photos-section" class="project-gallery">
@@ -90,6 +103,18 @@
       <div class="project-item" data-aos="fade-up"><img src="images/7.jpg" alt="Creative Area" loading="lazy" /></div>
       <div class="project-item" data-aos="fade-up"><img src="images/bg5.jpg" alt="Workspace" loading="lazy" /></div>
       <div class="project-item" data-aos="fade-up"><img src="images/4.jpg" alt="Open Room" loading="lazy" /></div>
+
+
+
+
+      <div class="project-item" data-category="interior"><img src="images/5.jpg" alt="Living Room" /><div class="overlay"><h3>Living Room</h3></div></div>
+
+<div class="project-item" data-category="architecture"><img src="images/bg6.jpg" alt="Architecture" /><div class="overlay"><h3>Front Elevation</h3></div></div>
+
+<div class="project-item" data-category="planner"><img src="images/bg6.jpg" alt="Planner Work" /><div class="overlay"><h3>Planning</h3></div></div>
+
+<!-- Repeat for each category -->
+
     </div>
   </section>
 
@@ -108,7 +133,7 @@
 
   <!-- Footer -->
 <footer>
-  <p>&copy; 2025 Architect Studio</p>
+  <p>&copy; HFA Architect & Associates</p>
   <h4>Follow Us On</h4>
   <div class="socials">
     <a href="https://wa.me/919420900210" target="_blank" aria-label="WhatsApp">
