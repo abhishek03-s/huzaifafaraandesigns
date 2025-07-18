@@ -202,3 +202,43 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
     });
   });
 });
+
+// ✅ Project Tab Filtering + Auto Category Selection from URL
+document.addEventListener("DOMContentLoaded", () => {
+  const tabButtons = document.querySelectorAll(".tab-btn");
+  const projectItems = document.querySelectorAll(".project-item");
+
+  // Filter function
+  function filterProjects(category) {
+    tabButtons.forEach(btn => {
+      btn.classList.toggle("active", btn.dataset.filter === category || (category === "all" && btn.dataset.filter === "all"));
+    });
+
+    projectItems.forEach(item => {
+      const itemCategory = item.dataset.category;
+      if (category === "all" || itemCategory === category) {
+        item.style.display = "block";
+      } else {
+        item.style.display = "none";
+      }
+    });
+  }
+
+  // Handle tab click
+  tabButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const filter = btn.dataset.filter;
+      filterProjects(filter);
+    });
+  });
+
+  // Check if a category is passed in the URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const categoryParam = urlParams.get("category");
+
+  if (categoryParam) {
+    filterProjects(categoryParam);
+  } else {
+    filterProjects("all"); // Show all by default
+  }
+});
