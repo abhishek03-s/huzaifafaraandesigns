@@ -1298,3 +1298,60 @@ body.dark .theme-toggle .toggle-icon::before {
   height: 100%;
   object-fit: cover;
 }
+
+
+/* Branding Section - Logo and Text Visibility for Mobile/iPad */
+.branding-section {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.branding-logo {
+  width: 180px;
+  max-width: 80%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.branding-name {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0.5rem 0;
+  letter-spacing: 1px;
+}
+
+.branding-role {
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+/* Adjust logo and text size for tablets and smaller phones */
+@media (max-width: 768px) {
+  .branding-logo {
+    width: 200px;
+  }
+
+  .branding-name {
+    font-size: 1.8rem;
+  }
+
+  .branding-role {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .branding-logo {
+    width: 160px;
+  }
+
+  .branding-name {
+    font-size: 1.5rem;
+  }
+
+  .branding-role {
+    font-size: 1.1rem;
+  }
+}
