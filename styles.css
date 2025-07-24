@@ -1489,8 +1489,7 @@ body.dark .theme-toggle .toggle-icon::before {
   border-radius: 1rem;
   object-fit: cover;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-}
-@media (max-width: 768px) {
+}@media (max-width: 768px) {
   .hero-wrapper {
     flex-direction: column;
     align-items: flex-start;
@@ -1514,11 +1513,10 @@ body.dark .theme-toggle .toggle-icon::before {
 
   .hero-image {
     position: absolute;
-    top: 170%;
-    bottom: 0%; /* ✅ Small half-overflow */
-    left: 70%;
+    top: 165%; /* Slightly pulled up */
+    left: 50%; /* Center horizontally */
     transform: translateX(-50%);
-    width: 60%; /* ✅ Smaller image on mobile */
+    width: 85%; /* ✅ Increased size */
     z-index: 1;
   }
 
@@ -1528,4 +1526,3 @@ body.dark .theme-toggle .toggle-icon::before {
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
   }
 }
-
