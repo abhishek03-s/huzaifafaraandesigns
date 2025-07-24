@@ -1653,3 +1653,63 @@ body.dark .theme-toggle .toggle-icon::before {
     padding: 4rem 1rem;
   }
 }
+
+
+/* === Testimonial Section === */
+.testimonial-section {
+  padding: 6rem 1.5rem;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+}
+
+.testimonial-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.testimonial-card {
+  background-color: var(--card);
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.testimonial-text {
+  font-size: 1rem;
+  font-style: italic;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.client-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  text-align: right;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .testimonial-section {
+    padding: 4rem 1rem;
+  }
+
+  .testimonial-text {
+    font-size: 0.95rem;
+  }
+
+  .client-name {
+    font-size: 0.9rem;
+  }
+}
