@@ -1514,7 +1514,7 @@ body.dark .theme-toggle .toggle-icon::before {
   .hero-image {
     position: absolute;
     top: 165%; /* Slightly pulled up */
-    left: 50%; /* Center horizontally */
+    left: 60%; /* Center horizontally */
     transform: translateX(-50%);
     width: 75%; /* ✅ Increased size */
     z-index: 1;
