@@ -1355,3 +1355,177 @@ body.dark .theme-toggle .toggle-icon::before {
     font-size: 1.1rem;
   }
 }
+
+.project-tab-section{
+  margin-top: 12rem; /* ✅ Adjust value to control how much lower it sits */
+}
+
+
+@media (max-width: 768px) {
+  .project-tab-section {
+    margin-top: 6rem; /* 📱 Smaller top spacing for mobile */
+  }
+}
+
+
+.hero.small-hero {
+  position: relative;
+  margin-top: 4rem;
+  min-height: 70vh;
+  overflow: visible; /* ✅ So image can overflow downward */
+  background: var(--bg);
+  z-index: 0;
+}
+
+/* Background slider */
+.hero-slider {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.hero-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Optional dark overlay on slider for text clarity */
+.hero-slider::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+
+/* Foreground content */
+.hero-wrapper {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6rem 2rem 3rem;
+  min-height: 70vh;
+  box-sizing: border-box;
+}
+
+/* Left text content */
+.hero-content {
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;  /* ✅ Left-aligned text */
+  max-width: 600px;
+  height: 100%;
+  color: var(--text);
+  position: relative;
+  z-index: 2;
+  padding-left: 0.5rem;       /* ✅ Push text tight to the left */
+  background: rgba(255, 255, 255, 0.05); /* Optional styling */
+  backdrop-filter: blur(4px);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+}
+
+.hero-content > * {
+  margin-bottom: 1rem;
+}
+
+.hero-content h2.hero-role-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-content p.hero-role-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+}
+
+.hero-buttons a {
+  font-size: 0.9rem;
+  padding: 0.6rem 1.2rem;
+  margin-right: 1rem;
+}
+
+/* Right image – half inside, half below hero */
+.hero-image {
+  position: absolute;
+  bottom: -25%;             /* ✅ Half image below hero */
+  right: 0%;   
+  left:  70%;              /* ✅ Align right side */
+  z-index: 2;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 90%;
+
+  padding-right: 2rem;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 1rem;
+  object-fit: cover;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+@media (max-width: 768px) {
+  .hero-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem 1.5rem;
+    min-height: auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-content {
+    width: 100%;
+    height: auto;
+    text-align: left;
+    padding: 1.5rem;
+    position: relative;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(3px);
+    border-radius: 0.75rem;
+  }
+
+  .hero-image {
+    position: absolute;
+    top: 170%;
+    bottom: 0%; /* ✅ Small half-overflow */
+    left: 70%;
+    transform: translateX(-50%);
+    width: 60%; /* ✅ Smaller image on mobile */
+    z-index: 1;
+  }
+
+  .hero-image img {
+    max-width: 100%;
+    border-radius: 1rem;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  }
+}
+
