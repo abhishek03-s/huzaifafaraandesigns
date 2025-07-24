@@ -1516,7 +1516,7 @@ body.dark .theme-toggle .toggle-icon::before {
     top: 165%; /* Slightly pulled up */
     left: 50%; /* Center horizontally */
     transform: translateX(-50%);
-    width: 85%; /* ✅ Increased size */
+    width: 75%; /* ✅ Increased size */
     z-index: 1;
   }
 
