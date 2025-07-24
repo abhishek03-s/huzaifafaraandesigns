@@ -1568,7 +1568,7 @@ body.dark .theme-toggle .toggle-icon::before {
 }
 
 .award-item {
-  background-color: #fff; /* Ensure card stands out on light backgrounds */
+  background-color: #fff;
   padding: 1rem;
   border-radius: 0.75rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -1576,15 +1576,24 @@ body.dark .theme-toggle .toggle-icon::before {
   transition: transform 0.3s ease;
   max-width: 150px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 160px;
 }
+
 
 .award-item img {
   width: 100%;
-  height: auto;
+  max-height: 100px;
   object-fit: contain;
-  filter: grayscale(0%);
+  object-position: center;
+  display: block;
+  margin: 0 auto;
   transition: filter 0.3s ease, transform 0.3s ease;
 }
+
 
 .award-item:hover {
   transform: translateY(-5px);
