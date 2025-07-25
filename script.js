@@ -242,3 +242,99 @@ AOS.init({
   duration: 1000,
   once: true,
 });
+
+const tabButtons = document.querySelectorAll(".tab-btn");
+const projectItems = document.querySelectorAll(".project-item");
+
+// 🔁 Main function to filter items
+function filterProjects(category) {
+  tabButtons.forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.filter === category);
+  });
+
+  projectItems.forEach(item => {
+    const itemCategory = item.dataset.category;
+    const show = category === "all" || itemCategory === category;
+    item.style.display = show ? "block" : "none";
+  });
+}
+
+// ✅ Click event on filter buttons
+tabButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    const filter = btn.dataset.filter;
+    filterProjects(filter);
+  });
+});
+
+// ✅ Auto-filter from URL (e.g., project.html?category=Interior)
+const urlParams = new URLSearchParams(window.location.search);
+const categoryParam = urlParams.get("category");
+filterProjects(categoryParam || "all");
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  // ✅ AOS Animation
+  if (typeof AOS !== "undefined") {
+    AOS.init({ duration: 1000, once: true });
+  }
+
+  // ✅ Tab Buttons and Project Items
+  const tabButtons = document.querySelectorAll(".tab-btn");
+  const projectItems = document.querySelectorAll(".project-item");
+  const grid = document.querySelector(".project-grid");
+
+  // ✅ Shuffle function for "All" view
+  function shuffleProjectItems() {
+    const items = Array.from(grid.children);
+    const shuffled = items.sort(() => Math.random() - 0.5);
+    shuffled.forEach(item => grid.appendChild(item));
+  }
+
+  // ✅ Main filter function
+  function filterProjects(category) {
+    tabButtons.forEach(btn => {
+      btn.classList.toggle("active", btn.dataset.filter === category);
+    });
+
+    projectItems.forEach(item => {
+      const itemCategory = item.dataset.category;
+      const show = category === "all" || itemCategory === category;
+      item.style.display = show ? "block" : "none";
+    });
+
+    // Shuffle only if 'all' is selected
+    if (category === "all") {
+      shuffleProjectItems();
+    }
+  }
+
+  // ✅ Event listeners on tab buttons
+  tabButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const filter = btn.dataset.filter;
+      filterProjects(filter);
+    });
+  });
+
+  // ✅ URL parameter support (e.g., ?category=Interior)
+  const urlParams = new URLSearchParams(window.location.search);
+  const categoryParam = urlParams.get("category");
+  filterProjects(categoryParam || "all");
+
+  // ✅ Optional: Auto-shuffle if no param or "all"
+  if (!categoryParam || categoryParam.toLowerCase() === "all") {
+    shuffleProjectItems();
+  }
+});
+
+
+toggleBtn.addEventListener("click", () => {
+  const isVisible = videoSection.classList.contains("show");
+  videoSection.classList.toggle("show");
+  toggleBtn.textContent = isVisible ? "🎥 Watch Our Videos" : "📽 Hide Videos";
+});
+
+
