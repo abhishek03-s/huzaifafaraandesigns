@@ -2170,3 +2170,52 @@ body.dark .section-bg-text {
     width: 100%;
   }
 }
+
+.section-bg-text {
+  position: absolute;
+  top: 0.5rem;  /* ✅ Slightly higher */
+  left: 1rem;
+  width: 100%;
+  font-size: 12vw;
+  font-weight: 900;
+  letter-spacing: -1px;
+  color: rgba(0, 0, 0, 0.04); /* Light mode */
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Dark mode support */
+body.dark .section-bg-text {
+  color: rgba(255, 255, 255, 0.05); /* ✅ Brighter for mobile dark mode */
+}
+
+/* Optional: Center on small screens */
+@media (max-width: 768px) {
+  .section-bg-text {
+    font-size: 14vw;
+    top: 1rem;
+    text-align: center;
+  }
+}
+
+/* ✅ Unified image grid layout */
+.section-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.section-images img {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* ✅ Perfect square */
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+/* Optional hover */
+.section-images img:hover {
+  transform: scale(1.03);
+}
