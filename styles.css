@@ -2253,11 +2253,12 @@ body.dark .section-bg-text {
   }
 }
 
+
 /* === SECTION BACKGROUND TEXT (mobile fix) === */
 @media (max-width: 768px) {
   .section-bg-text {
     top: 2rem;              /* ✅ Position behind the heading */
-    left: 1rem;
+    left: 0rem;
     text-align: left;
     font-size: 14vw;
     width: 100%;
@@ -2288,4 +2289,3 @@ body.dark .section-bg-text {
     border-radius: 10px;
   }
 }
-
