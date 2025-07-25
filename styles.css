@@ -1756,3 +1756,70 @@ body.dark .theme-toggle .toggle-icon::before {
     font-size: 0.85rem;
   }
 }
+
+/* === Testimonial Section === */
+.testimonial-section {
+  padding: 6rem 1.5rem;
+  background-color: var(--bg);
+  text-align: center;
+  color: var(--text);
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 3rem;
+}
+
+/* List layout */
+.testimonial-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Individual card */
+.testimonial-card {
+  max-width: 600px;
+  padding: 2rem;
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  animation: floatUpDown 5s ease-in-out infinite;
+}
+
+.testimonial-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.client-name {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent); /* Matching your theme */
+}
+
+/* Float effect */
+@keyframes floatUpDown {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .testimonial-text {
+    font-size: 0.95rem;
+  }
+
+  .client-name {
+    font-size: 0.9rem;
+  }
+}
