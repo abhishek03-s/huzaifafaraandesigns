@@ -2174,9 +2174,10 @@ body.dark .section-bg-text {
 .section-bg-text {
   position: absolute;
   top: 0.5rem;  /* ✅ Slightly higher */
-  left: 1rem;
+  left: 2rem;
+  right: 2rem;
   width: 100%;
-  font-size: 12vw;
+  font-size: 10vw;
   font-weight: 900;
   letter-spacing: -1px;
   color: rgba(0, 0, 0, 0.04); /* Light mode */
