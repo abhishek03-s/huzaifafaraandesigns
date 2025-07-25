@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     AOS.init({ duration: 1000, once: true });
   }
 
-  // ✅ Light/Dark Mode
+  // ✅ Light/Dark Mode Toggle
   const themeToggle = document.getElementById("theme-toggle");
   const body = document.body;
   const savedTheme = localStorage.getItem("theme");
@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const hamburger = document.querySelector(".hamburger");
   const navLinks = document.getElementById("navLinks");
   hamburger?.addEventListener("click", () => navLinks?.classList.toggle("show"));
-
   document.querySelectorAll("#navLinks a").forEach(link => {
     link.addEventListener("click", () => {
       if (window.innerWidth <= 768 && navLinks.classList.contains("show")) {
@@ -28,20 +27,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // ✅ Hero Slider with Title/Description
+  // ✅ Hero Slider (Titles & Background)
   const heroSlides = document.querySelectorAll(".hero-slide");
   const heroRoleTitle = document.querySelector(".hero-role-title");
   const heroRoleDesc = document.querySelector(".hero-role-description");
   const heroContent = document.querySelector(".hero-content");
 
   const roleTitles = [
-    "Architecture",
-    "Interior",
-    "Planner",
-    "Project Management",
-    "3D Visualization",
-    "Landscape",
-    "Site Execution"
+    "Architecture", "Interior", "Planner", "Project Management",
+    "3D Visualization", "Landscape", "Site Execution"
   ];
 
   const roleDescriptions = [
@@ -55,14 +49,12 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
   let currentSlide = 0;
-
-  const updateHeroSlide = (index) => {
+  function updateHeroSlide(index) {
     heroSlides.forEach((slide, i) => {
       slide.classList.toggle("active", i === index);
     });
 
     heroContent.classList.remove("show");
-
     setTimeout(() => {
       if (heroRoleTitle && heroRoleDesc) {
         heroRoleTitle.textContent = roleTitles[index] || "";
@@ -70,17 +62,16 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       heroContent.classList.add("show");
     }, 300);
-  };
+  }
 
   updateHeroSlide(currentSlide);
   setTimeout(() => heroContent.classList.add("show"), 100);
-
   setInterval(() => {
     currentSlide = (currentSlide + 1) % heroSlides.length;
     updateHeroSlide(currentSlide);
   }, 5000);
 
-  // ✅ WhatsApp Form
+  // ✅ WhatsApp Contact Form
   const contactForm = document.getElementById("contact-form");
   const formStatus = document.getElementById("form-status");
   if (contactForm) {
@@ -90,10 +81,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const phone = contactForm.querySelector("[name='phone']").value.trim();
       const email = contactForm.querySelector("[name='email']").value.trim();
       const message = contactForm.querySelector("[name='message']").value.trim();
+
       if (!name || !phone || !email || !message) {
         formStatus.textContent = "❗ Please fill in all fields.";
         return;
       }
+
       const fullMessage = encodeURIComponent(
         `*New Project Inquiry*\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nMessage: ${message}`
       );
@@ -111,9 +104,11 @@ document.addEventListener("DOMContentLoaded", () => {
   backToTopBtn.title = "Back to top";
   backToTopBtn.textContent = "↑";
   document.body.appendChild(backToTopBtn);
+
   window.addEventListener("scroll", () => {
     backToTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
   });
+
   backToTopBtn.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
@@ -133,6 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
         clone.classList.add("lightbox-img-item");
         lightboxWrapper.appendChild(clone);
       });
+
       lightbox.classList.add("show");
       document.body.style.overflow = "hidden";
       caption.textContent = img.alt || "";
@@ -158,26 +154,28 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target === lightbox) closeLightbox();
   });
 
-  // ✅ Room Sliders
-  function startRoomSlider(id) {
-    const slides = document.querySelectorAll(`#${id} .room-slide`);
+  // ✅ Square Sliders (Rooms + Categories)
+  function startSlider(id, className) {
+    const slides = document.querySelectorAll(`#${id} .${className}`);
     let index = 0;
-
-    setInterval(() => {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle("active", i === index);
-      });
-      index = (index + 1) % slides.length;
-    }, 4000);
+    if (slides.length) {
+      slides[index].classList.add("active");
+      setInterval(() => {
+        slides.forEach((slide, i) => slide.classList.toggle("active", i === index));
+        index = (index + 1) % slides.length;
+      }, 4000);
+    }
   }
 
-  ["living-carousel", "kitchen-carousel", "bedroom-carousel"].forEach(startRoomSlider);
+  // Start sliders
+  startSlider("living-carousel", "room-slide");
+  startSlider("kitchen-carousel", "room-slide");
+  startSlider("bedroom-carousel", "room-slide");
 
-  // ✅ Square Image Sliders (Homepage Categories)
   document.querySelectorAll(".square-slider").forEach(slider => {
     const imgs = slider.querySelectorAll("img");
     let i = 0;
-    imgs[i].classList.add("active");
+    if (imgs.length) imgs[i].classList.add("active");
 
     setInterval(() => {
       imgs[i].classList.remove("active");
@@ -199,18 +197,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // ✅ Project Tab Filtering + Auto URL Filter
+  // ✅ Project Tab Filtering (NO Shuffle)
   const tabButtons = document.querySelectorAll(".tab-btn");
   const projectItems = document.querySelectorAll(".project-item");
 
   function filterProjects(category) {
     tabButtons.forEach(btn => {
-      btn.classList.toggle("active", btn.dataset.filter === category || (category === "all" && btn.dataset.filter === "all"));
+      btn.classList.toggle("active", btn.dataset.filter === category);
     });
 
     projectItems.forEach(item => {
       const itemCategory = item.dataset.category;
-      item.style.display = (category === "all" || itemCategory === category) ? "block" : "none";
+      const show = category === "all" || itemCategory === category;
+      item.style.display = show ? "block" : "none";
     });
   }
 
@@ -225,11 +224,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const categoryParam = urlParams.get("category");
   filterProjects(categoryParam || "all");
 
-  // ✅ Animated Award Slides (Award 2 & 3)
+  // ✅ Video Toggle Button (If used)
+  const toggleBtn = document.getElementById("toggleVideosBtn");
+  const videoSection = document.getElementById("customVideoSection");
+  toggleBtn?.addEventListener("click", () => {
+    const isVisible = videoSection.classList.contains("show");
+    videoSection.classList.toggle("show");
+    toggleBtn.textContent = isVisible ? "🎥 Watch Our Videos" : "📽 Hide Videos";
+  });
+
+  // ✅ Award Image Auto Switch (Award 2 & 3)
   document.querySelectorAll(".animated-award .award-image-slider").forEach(slider => {
     const slides = slider.querySelectorAll("img");
     let index = 0;
-
     setInterval(() => {
       slides.forEach((img, i) => img.classList.toggle("active", i === index));
       index = (index + 1) % slides.length;
@@ -238,15 +245,9 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-AOS.init({
-  duration: 1000,
-  once: true,
-});
-
 const tabButtons = document.querySelectorAll(".tab-btn");
 const projectItems = document.querySelectorAll(".project-item");
 
-// 🔁 Main function to filter items
 function filterProjects(category) {
   tabButtons.forEach(btn => {
     btn.classList.toggle("active", btn.dataset.filter === category);
@@ -259,7 +260,6 @@ function filterProjects(category) {
   });
 }
 
-// ✅ Click event on filter buttons
 tabButtons.forEach(btn => {
   btn.addEventListener("click", () => {
     const filter = btn.dataset.filter;
@@ -267,74 +267,6 @@ tabButtons.forEach(btn => {
   });
 });
 
-// ✅ Auto-filter from URL (e.g., project.html?category=Interior)
 const urlParams = new URLSearchParams(window.location.search);
 const categoryParam = urlParams.get("category");
 filterProjects(categoryParam || "all");
-
-
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  // ✅ AOS Animation
-  if (typeof AOS !== "undefined") {
-    AOS.init({ duration: 1000, once: true });
-  }
-
-  // ✅ Tab Buttons and Project Items
-  const tabButtons = document.querySelectorAll(".tab-btn");
-  const projectItems = document.querySelectorAll(".project-item");
-  const grid = document.querySelector(".project-grid");
-
-  // ✅ Shuffle function for "All" view
-  function shuffleProjectItems() {
-    const items = Array.from(grid.children);
-    const shuffled = items.sort(() => Math.random() - 0.5);
-    shuffled.forEach(item => grid.appendChild(item));
-  }
-
-  // ✅ Main filter function
-  function filterProjects(category) {
-    tabButtons.forEach(btn => {
-      btn.classList.toggle("active", btn.dataset.filter === category);
-    });
-
-    projectItems.forEach(item => {
-      const itemCategory = item.dataset.category;
-      const show = category === "all" || itemCategory === category;
-      item.style.display = show ? "block" : "none";
-    });
-
-    // Shuffle only if 'all' is selected
-    if (category === "all") {
-      shuffleProjectItems();
-    }
-  }
-
-  // ✅ Event listeners on tab buttons
-  tabButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      const filter = btn.dataset.filter;
-      filterProjects(filter);
-    });
-  });
-
-  // ✅ URL parameter support (e.g., ?category=Interior)
-  const urlParams = new URLSearchParams(window.location.search);
-  const categoryParam = urlParams.get("category");
-  filterProjects(categoryParam || "all");
-
-  // ✅ Optional: Auto-shuffle if no param or "all"
-  if (!categoryParam || categoryParam.toLowerCase() === "all") {
-    shuffleProjectItems();
-  }
-});
-
-
-toggleBtn.addEventListener("click", () => {
-  const isVisible = videoSection.classList.contains("show");
-  videoSection.classList.toggle("show");
-  toggleBtn.textContent = isVisible ? "🎥 Watch Our Videos" : "📽 Hide Videos";
-});
-
-
