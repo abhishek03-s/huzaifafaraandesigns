@@ -236,3 +236,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 3000);
   });
 });
+
+
+AOS.init({
+  duration: 1000,
+  once: true,
+});
