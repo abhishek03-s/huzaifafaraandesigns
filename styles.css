@@ -1539,122 +1539,6 @@ body.dark .theme-toggle .toggle-icon::before {
 
 
 
-/* === Awards Section === */
-.awards-section {
-  padding: 6rem 1.5rem;
-  background-color: var(--card); /* Light grey on light mode, dark card in dark mode */
-  color: var(--text);
-}
-
-.awards-heading {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.awards-main-logo {
-  width: 80px;
-  height: auto;
-  margin-bottom: 1rem;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: rgba(0, 0, 0, 0.03); /* Subtle bg to lift logo */
-  padding: 0.5rem;
-  border-radius: 0.75rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-}
-
-.section-title {
-  font-size: 2rem;
-  text-align: center;
-  color: var(--text);
-}
-
-.awards-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-}
-
-.award-item {
-  background-color: #fff;
-  padding: 1rem;
-  border-radius: 0.75rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  border: 1px solid var(--border);
-  transition: transform 0.3s ease;
-  max-width: 150px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 160px;
-}
-
-
-.award-item img {
-  width: 100%;
-  max-height: 100px;
-  object-fit: contain;
-  object-position: center;
-  display: block;
-  margin: 0 auto;
-  transition: filter 0.3s ease, transform 0.3s ease;
-}
-
-
-.award-item:hover {
-  transform: translateY(-5px);
-}
-
-.award-item:hover img {
-  filter: grayscale(0%);
-}
-
-.award-caption {
-  font-size: 0.95rem;
-  margin-top: 0.75rem;
-  color: var(--text);
-  line-height: 1.3;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .award-item {
-    max-width: 120px;
-  }
-
-  .award-caption {
-    font-size: 0.85rem;
-  }
-
-  .awards-main-logo {
-    width: 60px;
-  }
-
-  .section-title {
-    font-size: 1.5rem;
-  }
-}
-
-.awards-section {
-  margin-top: 6rem;
-  padding: 6rem 1.5rem;
-  background-color: var(--card);
-  color: var(--text);
-}
-
-/* Mobile spacing adjustments */
-@media (max-width: 768px) {
-  .awards-section {
-    margin-top: 4rem; /* Slightly smaller space on mobile */
-    padding: 4rem 1rem;
-  }
-}
-
-
 /* === Testimonial Section === */
 .testimonial-section {
   padding: 6rem 1.5rem;
@@ -1711,5 +1595,164 @@ body.dark .theme-toggle .toggle-icon::before {
 
   .client-name {
     font-size: 0.9rem;
+  }
+}
+
+
+/* === Awards Section === */
+
+.awards-section {
+  padding: 6rem 1.5rem;
+  background-color: var(--card);
+  color: var(--text);
+  margin-top: 2rem;
+}
+
+.awards-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+/* Optional separator line above logo */
+.awards-heading::before {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 2px;
+  background-color: var(--border);
+  margin-bottom: 2rem;
+  opacity: 0.3;
+}
+
+.awards-main-logo {
+  width: 100px;
+  max-height: 100px;
+  object-fit: contain;
+  background-color: rgba(0, 0, 0, 0.03);
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  margin-bottom: 1.25rem;
+  transition: transform 0.3s ease;
+}
+
+.awards-main-logo:hover {
+  transform: scale(1.05);
+}
+
+.section-title {
+  font-size: 2rem;
+  text-align: center;
+  color: var(--text);
+  margin: 0;
+}
+
+/* === Award Gallery === */
+.awards-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.award-item {
+  background-color: var(--card);
+  padding: 1rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--border);
+  transition: transform 0.3s ease;
+  width: 100%;
+  max-width: 160px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 220px;
+}
+
+.award-item:hover {
+  transform: translateY(-5px);
+}
+
+.award-caption {
+  font-size: 0.95rem;
+  margin-top: 0.75rem;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+/* === Animated Slideshow === */
+.animated-award .award-image-slider {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+}
+
+.animated-award .award-image-slider img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.animated-award .award-image-slider img.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+/* === Static Award Images === */
+.award-item img:not(.animated-award img) {
+  width: 100%;
+  max-height: 100px;
+  object-fit: contain;
+  object-position: center;
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .awards-section {
+    margin-top: 4rem;
+    padding: 4rem 1rem;
+  }
+
+  .awards-heading {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  .awards-heading::before {
+    width: 60px;
+    margin-bottom: 1rem;
+  }
+
+  .awards-main-logo {
+    width: 80px;
+    padding: 0.5rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .award-item {
+    max-width: 120px;
+  }
+
+  .award-caption {
+    font-size: 0.85rem;
   }
 }
