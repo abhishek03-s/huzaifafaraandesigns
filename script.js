@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // ✅ Hero Slider with Dynamic Title/Description
+  // ✅ Hero Slider with Title/Description
   const heroSlides = document.querySelectorAll(".hero-slide");
   const heroRoleTitle = document.querySelector(".hero-role-title");
   const heroRoleDesc = document.querySelector(".hero-role-description");
@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ✅ Back to Top
+  // ✅ Back to Top Button
   const backToTopBtn = document.createElement("button");
   backToTopBtn.id = "backToTop";
   backToTopBtn.title = "Back to top";
@@ -157,58 +157,52 @@ document.addEventListener("DOMContentLoaded", () => {
   lightbox?.addEventListener("click", (e) => {
     if (e.target === lightbox) closeLightbox();
   });
-});
 
+  // ✅ Room Sliders
+  function startRoomSlider(id) {
+    const slides = document.querySelectorAll(`#${id} .room-slide`);
+    let index = 0;
 
-// ✅ Room Sliders
-function startRoomSlider(id) {
-  const slides = document.querySelectorAll(`#${id} .room-slide`);
-  let index = 0;
+    setInterval(() => {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === index);
+      });
+      index = (index + 1) % slides.length;
+    }, 4000);
+  }
 
-  setInterval(() => {
-    slides.forEach((slide, i) => {
-      slide.classList.toggle("active", i === index);
-    });
-    index = (index + 1) % slides.length;
-  }, 4000);
-}
+  ["living-carousel", "kitchen-carousel", "bedroom-carousel"].forEach(startRoomSlider);
 
-["living-carousel", "kitchen-carousel", "bedroom-carousel"].forEach(startRoomSlider);
-
-
-document.querySelectorAll(".square-slider").forEach(slider => {
-  const imgs = slider.querySelectorAll("img");
-  let i = 0;
-  imgs[i].classList.add("active");
-
-  setInterval(() => {
-    imgs[i].classList.remove("active");
-    i = (i + 1) % imgs.length;
+  // ✅ Square Image Sliders (Homepage Categories)
+  document.querySelectorAll(".square-slider").forEach(slider => {
+    const imgs = slider.querySelectorAll("img");
+    let i = 0;
     imgs[i].classList.add("active");
-  }, 3000); // Change every 3 seconds
-});
 
+    setInterval(() => {
+      imgs[i].classList.remove("active");
+      i = (i + 1) % imgs.length;
+      imgs[i].classList.add("active");
+    }, 3000);
+  });
 
+  // ✅ Tab Switching Logic (Photos/Videos)
+  document.querySelectorAll(".tab-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".tab-btn").forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
 
-// ✅ Tab Switching Logic
-document.querySelectorAll(".tab-btn").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    document.querySelectorAll(".tab-btn").forEach((b) => b.classList.remove("active"));
-    btn.classList.add("active");
-
-    const targetId = btn.getAttribute("data-target");
-    document.querySelectorAll(".tab-content").forEach((tab) => {
-      tab.style.display = tab.id === targetId ? "block" : "none";
+      const targetId = btn.getAttribute("data-target");
+      document.querySelectorAll(".tab-content").forEach((tab) => {
+        tab.style.display = tab.id === targetId ? "block" : "none";
+      });
     });
   });
-});
 
-// ✅ Project Tab Filtering + Auto Category Selection from URL
-document.addEventListener("DOMContentLoaded", () => {
+  // ✅ Project Tab Filtering + Auto URL Filter
   const tabButtons = document.querySelectorAll(".tab-btn");
   const projectItems = document.querySelectorAll(".project-item");
 
-  // Filter function
   function filterProjects(category) {
     tabButtons.forEach(btn => {
       btn.classList.toggle("active", btn.dataset.filter === category || (category === "all" && btn.dataset.filter === "all"));
@@ -216,15 +210,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     projectItems.forEach(item => {
       const itemCategory = item.dataset.category;
-      if (category === "all" || itemCategory === category) {
-        item.style.display = "block";
-      } else {
-        item.style.display = "none";
-      }
+      item.style.display = (category === "all" || itemCategory === category) ? "block" : "none";
     });
   }
 
-  // Handle tab click
   tabButtons.forEach(btn => {
     btn.addEventListener("click", () => {
       const filter = btn.dataset.filter;
@@ -232,14 +221,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Check if a category is passed in the URL
   const urlParams = new URLSearchParams(window.location.search);
   const categoryParam = urlParams.get("category");
+  filterProjects(categoryParam || "all");
 
-  if (categoryParam) {
-    filterProjects(categoryParam);
-  } else {
-    filterProjects("all"); // Show all by default
-  }
+  // ✅ Animated Award Slides (Award 2 & 3)
+  document.querySelectorAll(".animated-award .award-image-slider").forEach(slider => {
+    const slides = slider.querySelectorAll("img");
+    let index = 0;
+
+    setInterval(() => {
+      slides.forEach((img, i) => img.classList.toggle("active", i === index));
+      index = (index + 1) % slides.length;
+    }, 3000);
+  });
 });
-
