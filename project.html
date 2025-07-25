@@ -12,173 +12,208 @@
   <meta property="og:title" content="HUZAIFA FARAAN ARCHITECTURE + ÐESIGN" />
   <meta property="og:description" content="Creating unique, stylish, and contemporary architectural and interior design projects." />
   <meta property="og:type" content="website" />
-  <!-- Add your site URL below -->
   <meta property="og:url" content="https://yourwebsite.com" />
-  <!-- Optional og:image for social previews -->
   <meta property="og:image" content="https://yourwebsite.com/images/og-image.jpg" />
 
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="images/favicon.png" />
-  <!-- Apple touch icon -->
   <link rel="apple-touch-icon" href="images/favicon-apple.png" />
-
-  <!-- Fonts and stylesheets -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-  <link href="https://fonts.cdnfonts.com/css/chiller" rel="stylesheet">
-                
 </head>
 
 <body>
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/919420900210" class="whatsapp-btn" target="_blank" aria-label="Chat on WhatsApp">
+    <span>Chat on WhatsApp</span>
+    <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp Icon" />
+  </a>
+
   <!-- Back to Top Button -->
-<!-- WhatsApp Button -->
-<a href="https://wa.me/919420900210" class="whatsapp-btn" target="_blank" aria-label="Chat on WhatsApp">
-  <span>Chat on WhatsApp</span>
-  <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp Icon" />
-</a>
+  <button id="backToTop" title="Go to top">↑</button>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-left">
+      <img src="images/logo/logo navbar.jpeg" alt="Logo" class="logo-img" />
+      <span class="logo-text">HUZAIFA FARAAN<br>ARCHITECTURE + <br> ÐESIGN</span>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="project.html">Projects</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
+      <div class="toggle-icon"></div>
+    </button>
+    <div class="hamburger" aria-label="Menu">&#9776;</div>
+  </nav>
+
+  
+
+  <!-- Project Tabs -->
+  <section class="project-tabs" data-aos="fade-up">
+    <h2 class="about-title">Our Projects</h2>
+    <div class="tabs">
+      <button class="tab-btn active" data-filter="all" title="Show all projects">All</button>
+      <button class="tab-btn" data-filter="Architecture" title="Show architecture projects">Architecture</button>
+      <button class="tab-btn" data-filter="Interior" title="Show interior projects">Interior</button>
+      <button class="tab-btn" data-filter="Planner" title="Show planning projects">Planner</button>
+      <button class="tab-btn" data-filter="Project Management" title="Show PM projects">Project Management</button>
+      <button class="tab-btn" data-filter="3D Visualization & Landscape" title="Show 3D/landscape">3D Visualization & Landscape</button>
+      <button class="tab-btn" data-filter="Site Execution" title="Show site execution">Site Execution</button>
+    </div>
+  </section>
+
+
+
+  <!-- ✅ Project Gallery -->
+<section class="project-gallery" id="photos-section">
+  <div class="project-grid">
+
+    <!-- ✅ Interior -->
+    <!-- Just add more <img> tags here -->
+    <div class="project-item" data-category="Interior">
+      <img src="images/Interior/1.jpeg" alt="Interior 1" />
+      <div class="overlay"><h3>Interior</h3></div>
+    </div>
+    <div class="project-item" data-category="Interior">
+      <img src="images/Interior/2.jpeg" alt="Interior 2" />
+      <div class="overlay"><h3>Interior</h3></div>
+    </div>
+    <!-- 🔁 Add more Interior images here -->
 
 
 
 
-<!-- Back to Top Button -->
-<button id="backToTop" title="Go to top">↑</button>
+    <!-- ✅ Architecture -->
+    <div class="project-item" data-category="Architecture">
+      <img src="images/Architecture/1.jpeg" alt="Architecture 1" />
+      <div class="overlay"><h3>Architecture</h3></div>
+    </div>
+
+    <div class="project-item" data-category="Architecture">
+      <img src="images/Architecture/2.jpeg" alt="Architecture 2" />
+      <div class="overlay"><h3>Architecture</h3></div>
+    </div>
+     <div class="project-item" data-category="Architecture">
+      <img src="images/Architecture/3.jpeg" alt="Architecture 3" />
+      <div class="overlay"><h3>Architecture</h3></div>
+    </div>
+    <div class="project-item" data-category="Architecture">
+      <img src="images/Architecture/4.jpeg" alt="Architecture 4" />
+      <div class="overlay"><h3>Architecture</h3></div>
+    </div>
+    <div class="project-item" data-category="Architecture">
+      <img src="images/Architecture/5.jpeg" alt="Architecture 5" />
+      <div class="overlay"><h3>Architecture</h3></div>
+    </div>
+    <div class="project-item" data-category="Architecture">
+      <img src="images/Architecture/6.jpeg" alt="Architecture 6" />
+      <div class="overlay"><h3>Architecture</h3></div>
+    </div>
+    <div class="project-item" data-category="Architecture">
+      <img src="images/Architecture/7.jpeg" alt="Architecture 7" />
+      <div class="overlay"><h3>Architecture</h3></div>
+    </div>
+    <div class="project-item" data-category="Architecture">
+      <img src="images/Architecture/8.jpeg" alt="Architecture 8" />
+      <div class="overlay"><h3>Architecture</h3></div>
+    </div>
+    <div class="project-item" data-category="Architecture">
+      <img src="images/Architecture/9.jpeg" alt="Architecture 9" />
+      <div class="overlay"><h3>Architecture</h3></div>
+    </div>
+    <div class="project-item" data-category="Architecture">
+      <img src="images/Architecture/10.jpeg" alt="Architecture 10" />
+      <div class="overlay"><h3>Architecture</h3></div>
+    </div>
+    <div class="project-item" data-category="Architecture">
+      <img src="images/Architecture/11.jpeg" alt="Architecture 11" />
+      <div class="overlay"><h3>Architecture</h3></div>
+    </div>
+    <div class="project-item" data-category="Architecture">
+      <img src="images/Architecture/12.jpeg" alt="Architecture 12" />
+      <div class="overlay"><h3>Architecture</h3></div>
+    </div>
+    <div class="project-item" data-category="Architecture">
+      <img src="images/Architecture/13.jpeg" alt="Architecture 13" />
+      <div class="overlay"><h3>Architecture</h3></div>
+    </div>
+    
+    <!-- 🔁 Add more Architecture images here -->
 
 
 
+    <!-- ✅ Site Execution -->
+    <div class="project-item" data-category="Site Execution">
+      <img src="images/site/1.jpeg" alt="Site 1" />
+      <div class="overlay"><h3>Site Execution</h3></div>
+    </div>
+    <!-- 🔁 Add more Site Execution images here -->
 
-<nav class="navbar">
-  <div class="navbar-left">
-    <img src="images/logo/logo navbar.jpeg" alt="Logo" class="logo-img" />
-    <span class="logo-text" style="font-family: Arial, Helvetica, sans-serif;">HUZAIFA FARAAN <br>ARCHITECTURE + <br> ÐESIGN</span>
-  </div>
-
-  <div class="nav-links" id="navLinks">
-    <a href="index.html">Home</a>
-    <a href="index.html#about">About</a>
-    <a href="project.html">Projects</a>
-    <a href="index.html#contact">Contact</a>
-  </div>
-
-  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
-    <div class="toggle-icon"></div>
-  </button>
-
-  <div class="hamburger" aria-label="Menu">&#9776;</div>
-</nav>
+    <!-- ✅ Planner -->
+    <div class="project-item" data-category="Planner">
+      <img src="images/Planner/1.jpeg" alt="Planner 1" />
+      <div class="overlay"><h3>Planner</h3></div>
+    </div>
+    
+    <!-- 🔁 Add more Planner images here -->
 
 
 
-<!-- Project Tabs -->
-<section class="project-tabs" data-aos="fade-up">
-  <h2 class="about-title">Our Projects</h2>
-  <div class="tabs">
-    <button class="tab-btn" data-filter="all">All</button>
-    <button class="tab-btn" data-filter="Architecture">Architecture</button>
-    <button class="tab-btn" data-filter="Interior">Interior</button>
-    <button class="tab-btn" data-filter="Planner">Planner</button>
-    <button class="tab-btn" data-filter="Project Management">Project Management</button>
-    <button class="tab-btn" data-filter="3D Visualization & Landscape">3D Visualization & Landscape</button>
-    <button class="tab-btn" data-filter="Site Execution">Site Execution</button>
+    <!-- ✅ Project Management -->
+    <div class="project-item" data-category="Project Management">
+      <img src="images/Project Management/1.jpeg" alt="PM 1" />
+      <div class="overlay"><h3>Project Management</h3></div>
+    </div>
+    <!-- 🔁 Add more PM images here -->
+
+
+
+    <!-- ✅ 3D Visualization & Landscape -->
+    <div class="project-item" data-category="3D Visualization & Landscape">
+      <img src="images/3D/3D1.jpeg" alt="3D Viz 1" />
+      <div class="overlay"><h3>3D Visualization</h3></div>
+    </div>
+    <!-- 🔁 Add more 3D Viz images here -->
+
   </div>
 </section>
 
 
-
-  
-
-  <!-- Photos Section -->
-  <section id="photos-section" class="project-gallery">
-    <div class="project-grid">
-
-
-<!-- Architecture Items -->
-
-<div class="project-item" data-category="Architecture"><img src="images/Architecture/1.jpeg" alt="Architecture" /><div class="overlay"><h3>Architecture</h3></div></div>
-
-
-<!-- Interior Items -->
-<div class="project-item" data-category="Interior"><img src="images/Interior/1.jpeg" alt="Interior" /><div class="overlay"><h3>Interior</h3></div></div>
-
-
-<!-- Planner Items -->
-<div class="project-item" data-category="Planner"><img src="images/Planner/1.jpeg" alt="Planner" /><div class="overlay"><h3>Planning</h3></div></div>
-
-
-
-<!-- Project Management -->
-<div class="project-item" data-category="Project Management"><img src="images/Project Management/1.jpeg" alt="Project Management" /><div class="overlay"><h3>Project Management</h3></div></div>
-
-
-
-<!-- 3D Visualization & Landscape Items -->
-<div class="project-item" data-category="3D Visualization & Landscape"><img src="images/3D/3D1.jpeg" alt="3D Visualization & Landscape" /><div class="overlay"><h3>3D Visualization & Landscape</h3></div></div>
-<div class="project-item" data-category="3D Visualization & Landscape"><img src="images/3D/3D2.jpeg" alt="3D Visualization & Landscape" /><div class="overlay"><h3>3D Visualization & Landscape</h3></div></div>
-
-<!-- Site Execution -->
-<div class="project-item" data-category="Site Execution"><img src="images/site/1.jpeg" alt="Site Execution" /><div class="overlay"><h3>Site Execution</h3></div></div>
-<div class="project-item" data-category="Site Execution"><img src="images/site/2.jpeg" alt="Site Execution" /><div class="overlay"><h3>Site Execution</h3></div></div>
-<div class="project-item" data-category="Site Execution"><img src="images/site/3.jpeg" alt="Site Execution" /><div class="overlay"><h3>Site Execution</h3></div></div>
-<div class="project-item" data-category="Site Execution"><img src="images/site/4.jpeg" alt="Site Execution" /><div class="overlay"><h3>Site Execution</h3></div></div>
-<div class="project-item" data-category="Site Execution"><img src="images/site/5.jpeg" alt="Site Execution" /><div class="overlay"><h3>Site Execution</h3></div></div>
-
-
-
-
-
-<!-- Repeat for each category -->
-
-    </div>
-  </section>
-
-  <!-- Videos Section -->
-  <section id="videos-section" class="video-section" style="display: none;" data-aos="fade-up">
-    <h2>Video Walkthroughs</h2>
-    <div class="video-grid">
-      <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/231tKE8zV80" frameborder="0" allowfullscreen loading="lazy"></iframe>
-      </div>
-      <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/cHTOWL6SFho" frameborder="0" allowfullscreen loading="lazy"></iframe>
-      </div>
-    </div>
-  </section>
-
   <!-- Footer -->
-<footer>
-  <p>&copy; HFA Architect & Associates</p>
-  <h4>Follow Us On</h4>
-  <div class="socials">
-    <a href="https://wa.me/919420900210" target="_blank" aria-label="WhatsApp">
-      <img src="https://img.icons8.com/color/24/000000/whatsapp--v1.png" alt="WhatsApp" />
-    </a>
-    <a href="https://www.facebook.com/share/1L7ooEAVzF/" target="_blank" aria-label="Facebook">
-      <img src="https://img.icons8.com/color/24/000000/facebook-new.png" alt="Facebook" />
-    </a>
-    <a href="https://www.instagram.com/huzaifa_faraan_architects" target="_blank" aria-label="Instagram">
-      <img src="https://img.icons8.com/color/24/000000/instagram-new--v1.png" alt="Instagram" />
-    </a>
-    <a href="https://youtube.com/@architecture_and_more" target="_blank" aria-label="YouTube">
-      <img src="https://img.icons8.com/color/24/000000/youtube-play.png" alt="YouTube" />
-    </a>
+  <footer>
+    <p>&copy; HFA Architect & Associates</p>
+    <h4>Follow Us On</h4>
+    <div class="socials">
+      <a href="https://wa.me/919420900210" target="_blank"><img src="https://img.icons8.com/color/24/000000/whatsapp--v1.png" alt="WhatsApp" /></a>
+      <a href="https://www.facebook.com/share/1L7ooEAVzF/" target="_blank"><img src="https://img.icons8.com/color/24/000000/facebook-new.png" alt="Facebook" /></a>
+      <a href="https://www.instagram.com/huzaifa_faraan_architects" target="_blank"><img src="https://img.icons8.com/color/24/000000/instagram-new--v1.png" alt="Instagram" /></a>
+      <a href="https://youtube.com/@architecture_and_more" target="_blank"><img src="https://img.icons8.com/color/24/000000/youtube-play.png" alt="YouTube" /></a>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog">
+    <button class="lightbox-close" aria-label="Close">&times;</button>
+    <div class="lightbox-wrapper"></div>
+    <p class="lightbox-caption"></p>
   </div>
-</footer>
 
-
-<!-- Lightbox Modal -->
-<div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="Expanded image view">
-  <button class="lightbox-close" aria-label="Close">&times;</button>
-
-  <div class="lightbox-wrapper"></div>
-
-  <p class="lightbox-caption"></p>
-</div>
-
-
-
-
-  <!-- Scripts -->
+  <!-- AOS & Main Script -->
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script src="script.js"></script>
+
+  <!-- Google Analytics (replace with real ID) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXX');
+    
+    
+  </script>
 </body>
 </html>
